@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon smartphone & moi — Couverture v9B</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #e8e2d8;
+    background: #d6d0c6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,46 +19,34 @@
     gap: 60px;
   }
 
-  h2.section-label {
-    font-family: 'Lato', sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
   /* ============ PAGE 1 : COUVERTURE ============ */
   .cover-page {
     width: 595px;
     height: 842px;
-    background: linear-gradient(170deg, #FFF8EE 0%, #FBE9C0 100%);
+    background: linear-gradient(165deg, #FFFBF3 0%, #FEF3DA 55%, #FAE8B8 100%);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.28);
     display: flex;
     flex-direction: column;
   }
 
+  /* Left accent bar */
   .side-bar {
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 7px;
-    background: linear-gradient(180deg, #1A3A6B 0%, #2D5A9E 50%, #1A3A6B 100%);
+    background: linear-gradient(180deg, #1A3A6B 0%, #2C569E 50%, #1A3A6B 100%);
     z-index: 10;
   }
 
-  /* HEADER */
+  /* ---- HEADER ---- */
   .cover-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 30px 16px 30px;
-    border-bottom: 1.5px solid rgba(30,60,110,0.12);
-    z-index: 5;
+    padding: 20px 28px 16px 28px;
+    border-bottom: 1px solid rgba(26,58,107,0.10);
   }
 
   .lifguido-logo {
@@ -71,14 +59,14 @@
     display: flex;
     align-items: center;
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 700;
     color: #2D5A1B;
     line-height: 1;
     letter-spacing: -0.3px;
   }
 
-  .logo-leaf-container {
+  .logo-f-wrap {
     position: relative;
     display: inline-block;
   }
@@ -86,157 +74,126 @@
   .logo-leaf {
     position: absolute;
     top: -8px;
-    left: 3px;
+    left: 2px;
   }
 
   .logo-tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 9px;
+    font-size: 8.5px;
     color: #4A8A2A;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-weight: 400;
   }
 
-  .edition-badge {
-    background: #1A3A6B;
-    color: #FBE9C0;
-    font-family: 'Lato', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 5px 11px;
-    border-radius: 3px;
-  }
-
-  /* TITLE ABOVE PHOTO */
-  .title-zone {
-    padding: 20px 40px 16px 40px;
+  /* ---- TITLE AREA ---- */
+  .title-area {
+    padding: 22px 36px 18px 36px;
     text-align: center;
-    z-index: 5;
   }
 
-  .eyebrow {
+  .category-label {
     font-family: 'Lato', sans-serif;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #B8760A;
+    color: #B87A10;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .eyebrow::before, .eyebrow::after {
-    content: '';
-    width: 36px;
-    height: 1px;
-    background: #B8760A;
   }
 
   .main-title {
     font-family: 'Playfair Display', serif;
-    font-size: 44px;
+    font-size: 46px;
     font-weight: 800;
     color: #1A3A6B;
-    line-height: 1.05;
-    margin-bottom: 8px;
+    line-height: 1.0;
+    margin-bottom: 12px;
   }
 
-  .title-ampersand {
+  .ampersand {
     color: #C8880E;
     font-style: italic;
   }
 
-  .title-divider {
-    width: 50px;
+  .title-rule {
+    width: 44px;
     height: 3px;
     background: linear-gradient(90deg, #1A3A6B, #C8880E);
     border-radius: 2px;
-    margin: 12px auto;
+    margin: 0 auto 12px auto;
   }
 
   .subtitle {
     font-family: 'Playfair Display', serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     font-style: italic;
-    color: #3A5A8A;
-    line-height: 1.45;
-    max-width: 420px;
+    color: #3A5888;
+    line-height: 1.5;
+    max-width: 400px;
     margin: 0 auto;
   }
 
-  /* HERO PHOTO */
-  .hero-photo-wrap {
+  /* ---- HERO PHOTO ---- */
+  .hero-wrap {
     position: relative;
-    margin: 18px 30px 0 30px;
-    border-radius: 14px;
+    margin: 16px 28px 0 28px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(26,58,107,0.25);
-    height: 310px;
+    box-shadow: 0 10px 32px rgba(26,58,107,0.22);
+    height: 295px;
+    flex-shrink: 0;
   }
 
-  .hero-photo {
+  .hero-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 15%;
     display: block;
   }
 
-  .hero-photo-frame {
-    position: absolute;
-    inset: 0;
-    border: 3px solid rgba(255,255,255,0.4);
-    border-radius: 14px;
-    pointer-events: none;
-  }
-
-  /* Subtle gradient overlay on photo bottom for readability of badge */
-  .hero-photo-overlay {
+  .hero-gradient {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 70px;
-    background: linear-gradient(to top, rgba(26,58,107,0.75) 0%, transparent 100%);
+    height: 80px;
+    background: linear-gradient(to top, rgba(18,38,80,0.80) 0%, transparent 100%);
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+    right: 16px;
     display: flex;
     align-items: flex-end;
-    padding: 12px 16px;
     justify-content: space-between;
   }
 
   .hero-quote {
-    color: white;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 13px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.92);
     text-shadow: 0 1px 4px rgba(0,0,0,0.4);
   }
 
-  .hero-badge {
-    background: #F5C030;
-    color: #1A3A6B;
-    font-family: 'Lato', sans-serif;
-    font-size: 10px;
-    font-weight: 900;
-    padding: 5px 10px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
+  .hero-rating {
+    color: #F5C030;
+    font-size: 13px;
+    letter-spacing: 1px;
   }
 
-  /* STATS BAR */
+  /* ---- STATS BAR ---- */
   .stats-bar {
-    margin: 16px 30px 0 30px;
-    background: linear-gradient(135deg, #1A3A6B 0%, #243F78 100%);
-    border-radius: 10px;
-    padding: 13px 16px;
+    margin: 14px 28px 0 28px;
+    background: linear-gradient(135deg, #1A3A6B 0%, #22468A 100%);
+    border-radius: 9px;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 15px rgba(26,58,107,0.25);
+    box-shadow: 0 5px 16px rgba(26,58,107,0.28);
   }
 
   .stat-item {
@@ -246,7 +203,7 @@
     gap: 2px;
   }
 
-  .stat-number {
+  .stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     font-weight: 700;
@@ -254,498 +211,559 @@
     line-height: 1;
   }
 
-  .stat-label {
+  .stat-lbl {
     font-family: 'Lato', sans-serif;
-    font-size: 8.5px;
+    font-size: 8px;
     font-weight: 700;
-    letter-spacing: 0.8px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.70);
   }
 
-  .stat-divider {
+  .stat-sep {
     width: 1px;
-    height: 28px;
-    background: rgba(255,255,255,0.15);
+    height: 26px;
+    background: rgba(255,255,255,0.14);
   }
 
-  /* TOPIC TAGS */
-  .topics-zone {
-    padding: 12px 40px 0 40px;
+  /* ---- TOPIC TAGS ---- */
+  .tags-row {
+    padding: 11px 36px 0 36px;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
   }
 
-  .topic-tag {
+  .tag {
     background: rgba(26,58,107,0.07);
-    border: 1px solid rgba(26,58,107,0.15);
+    border: 1px solid rgba(26,58,107,0.14);
     color: #1A3A6B;
     font-family: 'Lato', sans-serif;
     font-size: 9.5px;
     font-weight: 700;
-    padding: 4px 9px;
+    padding: 3px 9px;
     border-radius: 20px;
   }
 
-  /* FOOTER */
-  .cover-footer {
+  /* ---- FOOTER ---- */
+  .page-footer {
     margin-top: auto;
-    padding: 13px 30px;
-    background: linear-gradient(135deg, #1A3A6B 0%, #1E3F72 100%);
+    padding: 11px 28px;
+    background: linear-gradient(135deg, #1A3A6B 0%, #1D3E74 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .footer-site {
+  .footer-brand {
     font-family: 'Lato', sans-serif;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
-    color: rgba(255,255,255,0.95);
-    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 0.4px;
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  .footer-update {
-    font-family: 'Lato', sans-serif;
-    font-size: 10px;
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-  }
-
-  .footer-score {
-    background: #F5C030;
-    color: #1A3A6B;
+  .footer-edition {
     font-family: 'Lato', sans-serif;
     font-size: 10.5px;
-    font-weight: 900;
-    padding: 5px 11px;
-    border-radius: 5px;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #F5C030;
+    letter-spacing: 0.8px;
   }
 
 
   /* ============ PAGE 2 : DERNIERE PAGE ============ */
   .back-page {
     width: 595px;
-    min-height: 842px;
-    background: linear-gradient(170deg, #FFF8EE 0%, #FBE9C0 100%);
+    height: 842px;
+    background: linear-gradient(165deg, #FFFBF3 0%, #FEF3DA 55%, #FAE8B8 100%);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.28);
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   .back-page .side-bar {
     background: linear-gradient(180deg, #2D5A1B 0%, #4A8A2A 50%, #2D5A1B 100%);
   }
 
-  .back-top {
-    width: 100%;
-    padding: 30px 50px 24px 50px;
+  /* Header identique */
+  .back-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px 16px 28px;
+    border-bottom: 1px solid rgba(26,58,107,0.10);
+  }
+
+  .back-title-area {
+    padding: 22px 40px 16px 40px;
     text-align: center;
   }
 
-  .back-top-title {
+  .bravo-label {
     font-family: 'Lato', sans-serif;
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #B8760A;
+    color: #B87A10;
+    margin-bottom: 8px;
+  }
+
+  .bravo-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A3A6B;
+    line-height: 1.2;
     margin-bottom: 10px;
   }
 
-  .back-main-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: #1A3A6B;
-    line-height: 1.25;
-    margin-bottom: 12px;
-  }
-
-  .back-description {
+  .bravo-sub {
     font-family: 'Lato', sans-serif;
     font-size: 12.5px;
-    color: #4A5568;
+    color: #4A5A78;
     line-height: 1.6;
-    max-width: 430px;
+    max-width: 420px;
     margin: 0 auto;
   }
 
-  /* Testimonial photo block */
-  .testimonial-block {
-    margin: 18px 40px 0 40px;
-    background: white;
-    border-radius: 14px;
-    padding: 16px;
-    box-shadow: 0 6px 18px rgba(26,58,107,0.10);
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .testimonial-photo {
-    width: 110px;
-    height: 110px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .testimonial-text {
-    flex: 1;
-  }
-
-  .testimonial-stars {
-    color: #F5C030;
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .testimonial-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 13px;
-    color: #1A3A6B;
-    line-height: 1.45;
-    margin-bottom: 6px;
-  }
-
-  .testimonial-author {
-    font-family: 'Lato', sans-serif;
-    font-size: 10.5px;
-    color: #6B7280;
-    font-weight: 700;
-  }
-
-  .back-links {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 22px 40px 0 40px;
-    width: 100%;
-  }
-
-  .link-card {
+  /* Skills learned section */
+  .skills-section {
+    margin: 16px 40px 0 40px;
+    background: rgba(26,58,107,0.04);
+    border: 1px solid rgba(26,58,107,0.10);
     border-radius: 12px;
-    padding: 18px 22px;
+    padding: 16px 20px;
+  }
+
+  .skills-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1A3A6B;
+    margin-bottom: 12px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  .skill-item {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 8px;
   }
 
-  .link-card.primary {
-    background: linear-gradient(135deg, #1A3A6B 0%, #243F78 100%);
-    box-shadow: 0 6px 18px rgba(26,58,107,0.22);
-  }
-
-  .link-card.secondary {
-    background: linear-gradient(135deg, #2D5A1B 0%, #3D7022 100%);
-    box-shadow: 0 6px 18px rgba(45,90,27,0.22);
-  }
-
-  .link-card-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 11px;
-    background: rgba(255,255,255,0.15);
+  .skill-check {
+    width: 18px;
+    height: 18px;
+    background: #1A3A6B;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
 
-  .link-card-body { flex: 1; }
-
-  .link-card-label {
+  .skill-text {
     font-family: 'Lato', sans-serif;
-    font-size: 9.5px;
+    font-size: 11px;
+    color: #2D3748;
     font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* Next steps */
+  .steps-section {
+    margin: 14px 40px 0 40px;
+    background: linear-gradient(135deg, #1A3A6B 0%, #22468A 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .steps-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.65);
-    margin-bottom: 3px;
+    margin-bottom: 12px;
   }
 
-  .link-card-url {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.3px;
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .link-card-desc {
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    background: #F5C030;
+    color: #1A3A6B;
     font-family: 'Lato', sans-serif;
-    font-size: 10.5px;
-    color: rgba(255,255,255,0.75);
-    margin-top: 3px;
-    line-height: 1.45;
-  }
-
-  .link-card-arrow {
-    color: rgba(255,255,255,0.5);
-    font-size: 22px;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
 
-  .cta-box {
-    margin: 18px 40px 0 40px;
-    border: 1.5px solid rgba(26,58,107,0.15);
-    border-radius: 12px;
-    padding: 16px 22px;
-    text-align: center;
-    background: rgba(26,58,107,0.03);
-  }
-
-  .cta-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-style: italic;
-    color: #1A3A6B;
-    line-height: 1.55;
-  }
-
-  .cta-sub {
+  .step-text {
     font-family: 'Lato', sans-serif;
-    font-size: 10.5px;
-    color: #6B7280;
-    margin-top: 6px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.9);
     line-height: 1.4;
+    padding-top: 2px;
   }
 
-  .back-footer {
-    margin-top: auto;
-    width: 100%;
-    background: linear-gradient(135deg, #1A3A6B 0%, #1E3F72 100%);
-    padding: 14px 40px;
+  .step-text strong {
+    color: #F5C030;
+    font-weight: 900;
+  }
+
+  /* QR / resource strip */
+  .resource-strip {
+    margin: 14px 40px 0 40px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .resource-card {
+    flex: 1;
+    background: white;
+    border: 1px solid rgba(26,58,107,0.10);
+    border-radius: 10px;
+    padding: 12px 14px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(26,58,107,0.07);
   }
 
-  .back-footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.9);
+  .resource-icon {
+    width: 36px;
+    height: 36px;
+    background: #EEF2FF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-  .back-footer-copy {
+  .resource-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 10.5px;
+    font-weight: 900;
+    color: #1A3A6B;
+    margin-bottom: 2px;
+  }
+
+  .resource-sub {
     font-family: 'Lato', sans-serif;
     font-size: 9.5px;
-    color: rgba(255,255,255,0.45);
+    color: #6B7280;
+    line-height: 1.3;
   }
 
-  .back-footer-edition {
+  /* lifbio link at bottom of content */
+  .lifbio-link-row {
+    margin: 14px 40px 0 40px;
+    text-align: center;
+  }
+
+  .lifbio-link {
     font-family: 'Lato', sans-serif;
-    font-size: 9.5px;
+    font-size: 11px;
+    color: #2D5A1B;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(45,90,27,0.35);
+    padding-bottom: 1px;
     font-weight: 700;
-    color: #F5C030;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .lifbio-link-intro {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #6B7280;
   }
 </style>
 </head>
 <body>
 
 <!-- ============ PAGE 1 : COUVERTURE ============ -->
-<div>
-  <h2 class="section-label">Premiere page — Couverture</h2>
-  <div class="cover-page">
-    <div class="side-bar"></div>
+<div class="cover-page">
+  <div class="side-bar"></div>
 
-    <div class="cover-header">
-      <div class="lifguido-logo">
-        <div class="logo-wordmark">
-          lif<span class="logo-leaf-container"><svg class="logo-leaf" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
-            <path d="M7 1C7 1 7 7 7 13" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
-          </svg>f</span>guido
-        </div>
-        <span class="logo-tagline">vos guides bien-vieillir</span>
+  <div class="cover-header">
+    <div class="lifguido-logo">
+      <div class="logo-wordmark">
+        lif<span class="logo-f-wrap"><svg class="logo-leaf" width="13" height="13" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
+          <path d="M7 2L7 12" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>f</span>guido
       </div>
-      <div class="edition-badge">Edition Finale 2026</div>
+      <span class="logo-tagline">vos guides bien-vieillir</span>
     </div>
+  </div>
 
-    <div class="title-zone">
-      <div class="eyebrow">Le guide complet des seniors</div>
-      <div class="main-title">
-        Mon smartphone <span class="title-ampersand">&amp;</span> moi
-      </div>
-      <div class="title-divider"></div>
-      <div class="subtitle">
-        WhatsApp, Photos, Impots, Sante, Anti-arnaques —<br>
-        tout maitriser pas a pas, en toute serenite
-      </div>
+  <div class="title-area">
+    <div class="category-label">Le guide complet des seniors</div>
+    <div class="main-title">Mon smartphone <span class="ampersand">&amp;</span> moi</div>
+    <div class="title-rule"></div>
+    <div class="subtitle">
+      WhatsApp &middot; Photos &middot; Impots &middot; Sante &middot; Anti-arnaques<br>
+      Tout maitriser pas a pas, en toute serenite
     </div>
+  </div>
 
-    <!-- HERO PHOTO (la photo du senior qui lit le guide) -->
-    <div class="hero-photo-wrap">
-      <img class="hero-photo" src="assets/senior_reading.webp" alt="Senior souriant lisant le guide Mon smartphone et moi">
-      <div class="hero-photo-frame"></div>
-      <div class="hero-photo-overlay">
-        <div class="hero-quote">"Enfin un guide ecrit pour nous."</div>
-        <div class="hero-badge">+5000 lecteurs</div>
-      </div>
+  <div class="hero-wrap">
+    <img class="hero-img" src="assets/senior_reading.webp" alt="Senior lisant le guide Mon smartphone et moi">
+    <div class="hero-gradient"></div>
+    <div class="hero-caption">
+      <div class="hero-quote">"Enfin un guide ecrit pour nous."</div>
+      <div class="hero-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
     </div>
+  </div>
 
-    <div class="stats-bar">
-      <div class="stat-item">
-        <span class="stat-number">29</span>
-        <span class="stat-label">Chapitres</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">6</span>
-        <span class="stat-label">Annexes</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">200<span style="font-size:13px">+</span></span>
-        <span class="stat-label">Visuels</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">12</span>
-        <span class="stat-label">QR codes</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number" style="color:#34D399">98</span>
-        <span class="stat-label">Score /100</span>
-      </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">29</span>
+      <span class="stat-lbl">Chapitres</span>
     </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">6</span>
+      <span class="stat-lbl">Annexes</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">200+</span>
+      <span class="stat-lbl">Visuels</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">12</span>
+      <span class="stat-lbl">QR Codes</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num" style="color:#5FECA0">98</span>
+      <span class="stat-lbl">Score /100</span>
+    </div>
+  </div>
 
-    <div class="topics-zone">
-      <span class="topic-tag">iPhone &amp; Android</span>
-      <span class="topic-tag">Anti-arnaques</span>
-      <span class="topic-tag">ameli.fr</span>
-      <span class="topic-tag">FranceConnect</span>
-      <span class="topic-tag">WhatsApp</span>
-      <span class="topic-tag">Google Maps</span>
-      <span class="topic-tag">Emails</span>
-    </div>
+  <div class="tags-row">
+    <span class="tag">iPhone &amp; Android</span>
+    <span class="tag">Anti-arnaques</span>
+    <span class="tag">ameli.fr</span>
+    <span class="tag">FranceConnect</span>
+    <span class="tag">WhatsApp</span>
+    <span class="tag">Google Maps</span>
+    <span class="tag">Emails</span>
+  </div>
 
-    <div class="cover-footer">
-      <div class="footer-site">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <circle cx="8" cy="8" r="7" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
-          <path d="M8 1C8 1 5 4 5 8C5 12 8 15 8 15" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
-          <path d="M8 1C8 1 11 4 11 8C11 12 8 15 8 15" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
-          <line x1="1" y1="8" x2="15" y2="8" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
-        </svg>
-        lifguido.com
-      </div>
-      <div class="footer-update">Mis a jour · Edition 2026</div>
-      <div class="footer-score">v9B Recommande</div>
+  <div class="page-footer">
+    <div class="footer-brand">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+        <path d="M8 1.5C8 1.5 5.5 4 5.5 8C5.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <path d="M8 1.5C8 1.5 10.5 4 10.5 8C10.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+      </svg>
+      lifguido.com
     </div>
+    <div class="footer-edition">Edition 2026</div>
   </div>
 </div>
 
 
 <!-- ============ PAGE 2 : DERNIERE PAGE ============ -->
-<div>
-  <h2 class="section-label">Derniere page — Page de cloture</h2>
-  <div class="back-page">
-    <div class="side-bar"></div>
+<div class="back-page">
+  <div class="side-bar"></div>
 
-    <div class="back-top">
-      <div class="back-top-title">Continuez votre parcours</div>
-      <div class="back-main-heading">
-        Vous avez fait le bon choix.<br>Votre autonomie numerique commence ici.
+  <div class="back-header">
+    <div class="lifguido-logo">
+      <div class="logo-wordmark">
+        lif<span class="logo-f-wrap"><svg class="logo-leaf" width="13" height="13" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
+          <path d="M7 2L7 12" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
+        </svg>f</span>guido
       </div>
-      <p class="back-description">
-        Retrouvez tous nos guides et ressources pour bien vieillir au naturel
-        et en toute serenite.
-      </p>
+      <span class="logo-tagline">vos guides bien-vieillir</span>
     </div>
+  </div>
 
-    <!-- Testimonial avec la photo -->
-    <div class="testimonial-block">
-      <img class="testimonial-photo" src="assets/senior_reading.webp" alt="Lecteur satisfait du guide">
-      <div class="testimonial-text">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"Tout est expliqué clairement. J'ai enfin compris comment utiliser FranceConnect et installer WhatsApp tout seul."</div>
-        <div class="testimonial-author">— Bernard, 71 ans, Lyon</div>
-      </div>
+  <div class="back-title-area">
+    <div class="bravo-label">Vous etes arrive au bout</div>
+    <div class="bravo-heading">Felicitations !<br>Vous maitrisez maintenant votre smartphone.</div>
+    <div class="bravo-sub">
+      Pratiquez regulierement — chaque geste repete devient un reflexe.
+      Ce guide reste votre reference : revenez-y quand vous en avez besoin.
     </div>
+  </div>
 
-    <div class="back-links">
-      <div class="link-card primary">
-        <div class="link-card-icon">
-          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-            <circle cx="14" cy="14" r="9" stroke="rgba(255,255,255,0.7)" stroke-width="1.8"/>
-            <path d="M14 5C14 5 11 8 11 14C11 20 14 23 14 23" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
-            <path d="M14 5C14 5 17 8 17 14C17 20 14 23 14 23" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
-            <line x1="5" y1="14" x2="23" y2="14" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/>
+  <!-- Skills learned -->
+  <div class="skills-section">
+    <div class="skills-title">Ce que vous savez faire maintenant</div>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="link-card-body">
-          <div class="link-card-label">Boutique guides digitaux</div>
-          <div class="link-card-url">lifguido.com</div>
-          <div class="link-card-desc">Tous nos guides bien-vieillir : smartphone, nutrition, beaute naturelle, bien-etre senior</div>
-        </div>
-        <div class="link-card-arrow">&#8250;</div>
+        <span class="skill-text">Configurer Wi-Fi &amp; securite</span>
       </div>
-
-      <div class="link-card secondary">
-        <div class="link-card-icon">
-          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-            <path d="M14 4C9.5 4 6 7.8 6 13C6 18.2 10 22 14 26C18 22 22 18.2 22 13C22 7.8 18.5 4 14 4Z" fill="rgba(255,255,255,0.7)"/>
-            <path d="M14 4L14 26" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="link-card-body">
-          <div class="link-card-label">Blog articles gratuits</div>
-          <div class="link-card-url">lifbio.fr</div>
-          <div class="link-card-desc">Articles gratuits : beaute naturelle, nutrition, bien-etre, tech senior</div>
+        <span class="skill-text">Utiliser WhatsApp &amp; Zoom</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="link-card-arrow">&#8250;</div>
+        <span class="skill-text">Reconnaitre les arnaques</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="skill-text">Acceder a ameli &amp; impots</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="skill-text">Gerer photos &amp; memoire</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="skill-text">Acheter en ligne en securite</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="skill-text">Utiliser Siri &amp; Google Assistant</span>
+      </div>
+      <div class="skill-item">
+        <div class="skill-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M2 5L4.2 7.2L8 3" stroke="#F5C030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="skill-text">Lire &amp; envoyer des emails</span>
       </div>
     </div>
+  </div>
 
-    <div class="cta-box">
-      <div class="cta-text">
-        "Ce guide vous a aide ? Offrez-le a un proche qui en a besoin."
+  <!-- Next steps -->
+  <div class="steps-section">
+    <div class="steps-title">Vos 3 prochaines etapes</div>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Pratiquez chaque jour</strong> — 10 minutes suffisent. Choisissez un chapitre et repetez les gestes jusqu'a ce qu'ils soient automatiques.</div>
       </div>
-      <div class="cta-sub">
-        Pack famille disponible sur lifguido.com — 2 licences a 19,99 EUR
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Utilisez l'index (Annexe 6)</strong> — quand vous bloquez sur un mot ou une application, cherchez-le dans l'index alphabetique en fin de guide.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Offrez ce guide</strong> — si ce guide vous a aide, pensez a un proche qui en a besoin. Partagez-le : c'est le plus beau cadeau d'autonomie.</div>
       </div>
     </div>
+  </div>
 
-    <div style="padding: 18px 40px; display:flex; flex-direction:column; gap:8px; width:100%">
-      <div style="font-family:'Lato',sans-serif; font-size:10px; color:#9CA3AF; text-align:center; letter-spacing:1px; text-transform:uppercase; font-weight:700;">Ils nous font confiance</div>
-      <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
-        <div style="background:rgba(26,58,107,0.06); border:1px solid rgba(26,58,107,0.10); border-radius:8px; padding:8px 14px; text-align:center;">
-          <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#1A3A6B;">4.9/5</div>
-          <div style="font-size:8.5px; color:#6B7280; font-family:'Lato',sans-serif;">Satisfaction</div>
-        </div>
-        <div style="background:rgba(26,58,107,0.06); border:1px solid rgba(26,58,107,0.10); border-radius:8px; padding:8px 14px; text-align:center;">
-          <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#1A3A6B;">98/100</div>
-          <div style="font-size:8.5px; color:#6B7280; font-family:'Lato',sans-serif;">Score qualite</div>
-        </div>
-        <div style="background:rgba(45,90,27,0.06); border:1px solid rgba(45,90,27,0.10); border-radius:8px; padding:8px 14px; text-align:center;">
-          <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#2D5A1B;">2026</div>
-          <div style="font-size:8.5px; color:#6B7280; font-family:'Lato',sans-serif;">A jour</div>
-        </div>
+  <!-- Resource cards -->
+  <div class="resource-strip">
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2" y="2" width="7" height="7" rx="1" fill="#1A3A6B"/>
+          <rect x="11" y="2" width="7" height="7" rx="1" fill="#1A3A6B"/>
+          <rect x="2" y="11" width="7" height="7" rx="1" fill="#1A3A6B"/>
+          <rect x="13" y="13" width="2" height="2" fill="#1A3A6B"/>
+          <rect x="11" y="11" width="2" height="2" fill="#1A3A6B"/>
+          <rect x="16" y="11" width="2" height="2" fill="#1A3A6B"/>
+          <rect x="11" y="16" width="2" height="2" fill="#1A3A6B"/>
+          <rect x="16" y="16" width="2" height="2" fill="#1A3A6B"/>
+        </svg>
+      </div>
+      <div>
+        <div class="resource-title">12 QR Codes tutoriels</div>
+        <div class="resource-sub">Scannez-les pour visionner les videos officielles Apple, Google &amp; DGFiP</div>
       </div>
     </div>
-
-    <div class="back-footer">
-      <div class="back-footer-logo">lifguido</div>
-      <div class="back-footer-copy">&copy; 2026 lifguido.com</div>
-      <div class="back-footer-edition">Edition 2026</div>
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z" fill="#F5C030"/>
+        </svg>
+      </div>
+      <div>
+        <div class="resource-title">Index alphabetique</div>
+        <div class="resource-sub">Annexe 6 : retrouvez n'importe quel terme en quelques secondes</div>
+      </div>
     </div>
+  </div>
+
+  <!-- lifbio.fr link at bottom of content -->
+  <div class="lifbio-link-row">
+    <span class="lifbio-link-intro">Conseils gratuits chaque semaine sur </span><a class="lifbio-link" href="https://lifbio.fr">www.lifbio.fr</a>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+        <path d="M8 1.5C8 1.5 5.5 4 5.5 8C5.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <path d="M8 1.5C8 1.5 10.5 4 10.5 8C10.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+      </svg>
+      lifguido.com
+    </div>
+    <div class="footer-edition">Edition 2026</div>
   </div>
 </div>
 
