@@ -2,657 +2,828 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Couverture & Dernière page — Mon smartphone & moi v9B</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon smartphone & moi — Couverture v9B</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #2a2a2a;
+    background: #e8e2d8;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 80px;
-    padding: 80px 30px;
-    font-family: 'Inter', Arial, sans-serif;
+    padding: 40px 20px;
+    font-family: 'Lato', sans-serif;
+    gap: 60px;
   }
 
-  .section-label {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 11px;
+  h2.section-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #888;
-    text-align: center;
-    margin-bottom: -60px;
+    margin-bottom: 10px;
   }
 
-  /* ═══════════════════════════════════
-     PAGE DE COUVERTURE
-  ═══════════════════════════════════ */
-  .cover {
-    width: 600px;
-    height: 848px;
-    background: #F7F3EE;
+  /* ========== PAGE 1 : COUVERTURE ========== */
+  .cover-page {
+    width: 595px;
+    min-height: 842px;
+    background: linear-gradient(170deg, #FFF8EE 0%, #FFF0D6 40%, #FBE9C0 100%);
     position: relative;
-    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
 
-  /* ── Bandeau supérieur ── */
+  .cover-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 15% 20%, rgba(30,60,110,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 70%, rgba(240,190,50,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .side-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #1A3A6B 0%, #2D5A9E 50%, #1A3A6B 100%);
+  }
+
+  /* ---- HEADER ---- */
   .cover-header {
-    background: #1F3864;
-    padding: 20px 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-shrink: 0;
+    padding: 22px 30px 18px 30px;
+    border-bottom: 1.5px solid rgba(30,60,110,0.12);
   }
 
-  /* ── Logo lifguido ── */
-  .logo {
+  .lifguido-logo {
     display: flex;
     flex-direction: column;
-    gap: 3px;
-  }
-
-  .logo-mark {
-    display: flex;
-    align-items: flex-end;
-    gap: 0;
-    position: relative;
-  }
-
-  .logo-svg-wrap {
-    position: relative;
-    display: inline-flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 2px;
   }
 
   .logo-wordmark {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 21px;
-    font-weight: 400;
-    color: #F7F3EE;
-    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #2D5A1B;
     line-height: 1;
+    letter-spacing: -0.3px;
   }
 
-  /* Feuille SVG positionnée sur le f */
-  .leaf-on-f {
+  .logo-leaf-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .logo-leaf {
     position: absolute;
-    top: -11px;
-    left: 19px; /* positionné exactement sur le f */
+    top: -8px;
+    left: 3px;
   }
 
   .logo-tagline {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 8.5px;
-    font-weight: 300;
-    color: #8FAFD4;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
-
-  .logo-url {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 9px;
-    font-weight: 400;
-    color: #6B9BC4;
-    letter-spacing: 0.3px;
-  }
-
-  /* Badge édition */
-  .edition-badge {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 4px;
-    padding: 6px 14px;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 9.5px;
-    font-weight: 500;
-    color: #C4D8EF;
+    color: #4A8A2A;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    font-weight: 400;
   }
 
-  /* ── Zone visuelle ── */
-  .cover-visual {
-    width: 100%;
-    height: 310px;
-    background: linear-gradient(160deg, #1F3864 0%, #2D4F8A 45%, #1a3055 100%);
+  .edition-badge {
+    background: #1A3A6B;
+    color: #FBE9C0;
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 11px;
+    border-radius: 3px;
+  }
+
+  /* ---- ILLUSTRATION ZONE ---- */
+  .illustration-zone {
+    flex: 0 0 auto;
     position: relative;
-    flex-shrink: 0;
+    height: 310px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
+    padding: 10px 0 0 0;
   }
 
-  .cover-visual::after {
-    content: '';
+  .warm-circle {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, #F7F3EE);
-  }
-
-  /* Illustration smartphone SVG */
-  .phone-illustration {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Cercles décoratifs */
-  .deco-circle {
-    position: absolute;
+    width: 290px;
+    height: 290px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.04);
+    background: radial-gradient(circle, rgba(250,210,100,0.35) 0%, rgba(240,190,60,0.10) 60%, transparent 80%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
   }
 
-  /* ── Corps principal ── */
-  .cover-body {
-    flex: 1;
+  .deco-circle-1 {
+    position: absolute;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(26,58,107,0.06);
+    top: 20px; right: 60px;
+  }
+  .deco-circle-2 {
+    position: absolute;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    background: rgba(240,190,60,0.20);
+    bottom: 30px; left: 60px;
+  }
+  .deco-circle-3 {
+    position: absolute;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(26,58,107,0.10);
+    top: 50px; left: 100px;
+  }
+
+  .main-illustration {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- TITLE ZONE ---- */
+  .title-zone {
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 10px 50px 0;
     text-align: center;
-    gap: 14px;
   }
 
-  .cover-category {
-    font-family: 'Inter', Arial, sans-serif;
+  .eyebrow {
+    font-family: 'Lato', sans-serif;
     font-size: 10px;
-    font-weight: 600;
-    color: #1F3864;
+    font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    opacity: 0.6;
-  }
-
-  .cover-title-main {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 46px;
-    font-weight: 900;
-    color: #1F3864;
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-  }
-
-  .cover-title-amp {
-    color: #B8923A;
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .cover-rule {
+    color: #B8760A;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    width: 100%;
-    justify-content: center;
+    gap: 8px;
   }
 
-  .cover-rule-line {
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
     height: 1px;
-    width: 60px;
-    background: #B8923A;
-    opacity: 0.6;
+    background: #B8760A;
   }
 
-  .cover-rule-diamond {
-    width: 6px; height: 6px;
-    background: #B8923A;
-    transform: rotate(45deg);
-    opacity: 0.7;
+  .main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: #1A3A6B;
+    line-height: 1.1;
+    margin-bottom: 6px;
   }
 
-  .cover-subtitle {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 13px;
+  .title-ampersand {
+    color: #C8880E;
+  }
+
+  .title-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #1A3A6B, #C8880E);
+    border-radius: 2px;
+    margin: 10px auto;
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
     font-weight: 400;
-    color: #3D5580;
-    line-height: 1.7;
-    max-width: 370px;
+    font-style: italic;
+    color: #3A5A8A;
+    line-height: 1.45;
+    max-width: 400px;
   }
 
-  .cover-stats {
+  /* ---- STATS BAR ---- */
+  .stats-bar {
+    margin: 18px 30px 0 30px;
+    background: linear-gradient(135deg, #1A3A6B 0%, #243F78 100%);
+    border-radius: 10px;
+    padding: 14px 20px;
     display: flex;
-    gap: 0;
-    border: 1px solid #D8CEBC;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 4px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 15px rgba(26,58,107,0.25);
   }
 
   .stat-item {
-    padding: 10px 18px;
-    text-align: center;
-    border-right: 1px solid #D8CEBC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
   }
 
-  .stat-item:last-child { border-right: none; }
-
-  .stat-num {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
     font-weight: 700;
-    color: #1F3864;
-    display: block;
+    color: #F5C030;
+    line-height: 1;
   }
 
   .stat-label {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 8.5px;
-    font-weight: 500;
-    color: #8A9BB8;
-    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
     letter-spacing: 0.8px;
-    display: block;
-    margin-top: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
   }
 
-  /* ── Pied de couverture ── */
-  .cover-footer {
-    border-top: 1px solid #E2DAD0;
-    padding: 12px 36px;
+  .stat-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ---- KEY TOPICS ---- */
+  .topics-zone {
+    padding: 14px 40px 0 40px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-    background: #F7F3EE;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
   }
 
-  .cover-footer-copy {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 8px;
-    color: #AAA09A;
+  .topic-tag {
+    background: rgba(26,58,107,0.08);
+    border: 1px solid rgba(26,58,107,0.15);
+    color: #1A3A6B;
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
     letter-spacing: 0.3px;
   }
 
-  .cover-footer-score {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 9px;
-    color: #6B9BC4;
-    font-weight: 500;
-  }
-
-  /* ═══════════════════════════════════
-     DERNIÈRE PAGE
-  ═══════════════════════════════════ */
-  .last-page {
-    width: 600px;
-    height: 848px;
-    background: #F7F3EE;
-    position: relative;
-    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  /* Bandeau bleu top */
-  .last-header {
-    background: #1F3864;
-    height: 8px;
-    flex-shrink: 0;
-  }
-
-  .last-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 70px;
-    gap: 32px;
-    text-align: center;
-  }
-
-  .last-icon {
-    width: 64px; height: 64px;
-    background: #1F3864;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  .last-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #1F3864;
-    line-height: 1.35;
-  }
-
-  .last-text {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: #5A6878;
-    line-height: 1.8;
-    max-width: 380px;
-  }
-
-  .last-sep {
-    display: flex; align-items: center; gap: 12px; width: 100%;
-  }
-  .last-sep-line { flex: 1; height: 1px; background: #D8CEBC; }
-  .last-sep-text {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 9px; color: #B0A898; letter-spacing: 2px; text-transform: uppercase;
-  }
-
-  .last-links { display: flex; flex-direction: column; gap: 16px; width: 100%; }
-
-  .link-card {
-    background: white;
-    border: 1px solid #E5DDD5;
-    border-radius: 10px;
-    padding: 18px 22px;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    text-align: left;
-    box-shadow: 0 2px 12px rgba(31,56,100,0.06);
-    transition: box-shadow 0.2s;
-  }
-
-  .link-card-icon {
-    width: 46px; height: 46px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .link-card-icon.blue { background: #1F3864; }
-  .link-card-icon.green { background: #2D5A1B; }
-
-  .link-card-text { flex: 1; }
-
-  .link-card-label {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 9px; font-weight: 600;
-    color: #AAA09A; text-transform: uppercase; letter-spacing: 1.5px;
-    margin-bottom: 4px;
-  }
-
-  .link-card-url {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 17px; font-weight: 700;
-    color: #1F3864; display: block; margin-bottom: 3px;
-  }
-
-  .link-card-url.green { color: #2D5A1B; }
-
-  .link-card-desc {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 11px; color: #7A8898; line-height: 1.5;
-  }
-
-  /* Pied dernière page */
-  .last-footer {
-    background: #1F3864;
-    padding: 22px 36px;
+  /* ---- FOOTER ---- */
+  .cover-footer {
+    margin-top: auto;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #1A3A6B 0%, #1E3F72 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .footer-site {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-update {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-score {
+    background: #F5C030;
+    color: #1A3A6B;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 11px;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+  }
+
+
+  /* ========== PAGE 2 : DERNIERE PAGE ========== */
+  .back-page {
+    width: 595px;
+    min-height: 842px;
+    background: linear-gradient(170deg, #FFF8EE 0%, #FFF0D6 40%, #FBE9C0 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-page .side-bar {
+    background: linear-gradient(180deg, #2D5A1B 0%, #4A8A2A 50%, #2D5A1B 100%);
+  }
+
+  .back-top {
+    width: 100%;
+    padding: 40px 50px 30px 50px;
+    text-align: center;
+    border-bottom: 1.5px solid rgba(30,60,110,0.10);
+  }
+
+  .back-top-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B8760A;
+    margin-bottom: 12px;
+  }
+
+  .back-main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1A3A6B;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .back-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #4A5568;
+    line-height: 1.7;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  .back-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 50px;
+    width: 100%;
+  }
+
+  .link-card {
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .link-card.primary {
+    background: linear-gradient(135deg, #1A3A6B 0%, #243F78 100%);
+    box-shadow: 0 6px 20px rgba(26,58,107,0.22);
+  }
+
+  .link-card.secondary {
+    background: linear-gradient(135deg, #2D5A1B 0%, #3D7022 100%);
+    box-shadow: 0 6px 20px rgba(45,90,27,0.22);
+  }
+
+  .link-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
   }
 
-  .last-footer-brand {
+  .link-card-body {
+    flex: 1;
+  }
+
+  .link-card-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 3px;
+  }
+
+  .link-card-url {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+
+  .link-card-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .link-card-arrow {
+    color: rgba(255,255,255,0.5);
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .cta-box {
+    margin: 0 50px;
+    border: 1.5px solid rgba(26,58,107,0.15);
+    border-radius: 12px;
+    padding: 20px 26px;
+    text-align: center;
+    background: rgba(26,58,107,0.03);
+  }
+
+  .cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #1A3A6B;
+    line-height: 1.6;
+  }
+
+  .cta-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #6B7280;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .back-footer {
+    margin-top: auto;
+    width: 100%;
+    background: linear-gradient(135deg, #1A3A6B 0%, #1E3F72 100%);
+    padding: 16px 40px;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  .last-footer-logo-wrap {
-    position: relative;
-    display: inline-flex;
-    align-items: flex-end;
+  .back-footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
   }
 
-  .last-footer-wordmark {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 19px; font-weight: 400;
-    color: #F7F3EE; letter-spacing: 0.5px; line-height: 1;
+  .back-footer-copy {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
   }
 
-  .last-footer-leaf { position: absolute; top: -9px; left: 17px; }
-
-  .last-footer-tagline {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 8px; font-weight: 300;
-    color: #7A9BB8; letter-spacing: 1.8px; text-transform: uppercase;
+  .back-footer-edition {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #F5C030;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-
-  .last-footer-right {
-    text-align: right;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 10px; font-weight: 400;
-    color: #6B8AB0; line-height: 1.8;
-  }
-
 </style>
 </head>
 <body>
 
-<p class="section-label">Page 1 — Couverture</p>
+<!-- ============ PAGE 1 : COUVERTURE ============ -->
+<div>
+  <h2 class="section-label">Premiere page — Couverture</h2>
+  <div class="cover-page">
+    <div class="side-bar"></div>
 
-<!-- ═══════════════ COUVERTURE ═══════════════ -->
-<div class="cover">
-
-  <!-- Header bleu marine -->
-  <div class="cover-header">
-
-    <!-- Logo lifguido avec feuille SVG sur le f -->
-    <div class="logo">
-      <div class="logo-mark">
-        <div class="logo-svg-wrap">
-          <!-- Feuille SVG exacte sur la lettre f -->
-          <svg class="leaf-on-f" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 13 C6 13 1 9 1 5 C1 2.2 3.2 0.5 6 1 C8.8 0.5 11 2.2 11 5 C11 9 6 13 6 13Z" fill="#8BC34A"/>
-            <line x1="6" y1="13" x2="6" y2="5" stroke="#5D8A2E" stroke-width="0.8"/>
-          </svg>
-          <span class="logo-wordmark">lifguido</span>
+    <!-- HEADER -->
+    <div class="cover-header">
+      <div class="lifguido-logo">
+        <div class="logo-wordmark">
+          lif
+          <span class="logo-leaf-container">
+            <svg class="logo-leaf" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
+              <path d="M7 1C7 1 7 7 7 13" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
+            </svg>
+            <span>f</span>
+          </span>guido
         </div>
+        <span class="logo-tagline">vos guides bien-vieillir</span>
       </div>
-      <div class="logo-tagline">vos guides bien-vieillir</div>
-      <div class="logo-url">lifguido.com</div>
+      <div class="edition-badge">Edition Finale 2026</div>
     </div>
 
-    <div class="edition-badge">Édition 2026</div>
-  </div>
+    <!-- ILLUSTRATION -->
+    <div class="illustration-zone">
+      <div class="warm-circle"></div>
+      <div class="deco-circle-1"></div>
+      <div class="deco-circle-2"></div>
+      <div class="deco-circle-3"></div>
 
-  <!-- Zone visuelle -->
-  <div class="cover-visual">
-    <!-- Cercles déco -->
-    <div class="deco-circle" style="width:300px;height:300px;top:-80px;right:-80px;"></div>
-    <div class="deco-circle" style="width:180px;height:180px;bottom:-40px;left:-40px;background:rgba(255,255,255,0.03)"></div>
+      <div class="main-illustration">
+        <svg width="360" height="280" viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-    <!-- Illustration smartphone SVG propre -->
-    <div class="phone-illustration">
-      <svg width="150" height="220" viewBox="0 0 150 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Corps du téléphone -->
-        <rect x="25" y="10" width="100" height="175" rx="14" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
-        <!-- Écran -->
-        <rect x="33" y="24" width="84" height="135" rx="8" fill="white" fill-opacity="0.08"/>
-        <!-- Notch -->
-        <rect x="57" y="18" width="36" height="5" rx="2.5" fill="white" fill-opacity="0.3"/>
-        <!-- Bouton home -->
-        <circle cx="75" cy="194" r="7" fill="none" stroke="white" stroke-opacity="0.35" stroke-width="1.5"/>
-        <!-- Interface simulée -->
-        <rect x="42" y="38" width="66" height="8" rx="4" fill="white" fill-opacity="0.2"/>
-        <rect x="42" y="54" width="45" height="5" rx="2.5" fill="white" fill-opacity="0.13"/>
-        <!-- Icônes apps -->
-        <rect x="42" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <rect x="68" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <rect x="94" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <rect x="42" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <rect x="68" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <rect x="94" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
-        <!-- Barre de navigation -->
-        <rect x="52" y="136" width="46" height="3" rx="1.5" fill="white" fill-opacity="0.2"/>
-        <!-- Signal wifi -->
-        <path d="M66 47 Q75 40 84 47" stroke="white" stroke-opacity="0.5" stroke-width="1.5" fill="none"/>
-        <path d="M69 50 Q75 44 81 50" stroke="white" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
-        <circle cx="75" cy="54" r="1.5" fill="white" fill-opacity="0.8"/>
-        <!-- Boutons latéraux -->
-        <rect x="23" y="55" width="2" height="18" rx="1" fill="white" fill-opacity="0.25"/>
-        <rect x="23" y="80" width="2" height="25" rx="1" fill="white" fill-opacity="0.25"/>
-        <rect x="125" y="65" width="2" height="20" rx="1" fill="white" fill-opacity="0.25"/>
-      </svg>
+          <!-- Shadow under chair -->
+          <ellipse cx="180" cy="270" rx="120" ry="15" fill="rgba(26,58,107,0.08)"/>
+
+          <!-- Chair seat -->
+          <rect x="90" y="195" width="180" height="60" rx="20" fill="#C4895A"/>
+          <rect x="95" y="200" width="170" height="50" rx="18" fill="#D4976A"/>
+
+          <!-- Chair back -->
+          <rect x="100" y="120" width="160" height="90" rx="18" fill="#C4895A"/>
+          <rect x="106" y="126" width="148" height="80" rx="15" fill="#D4976A"/>
+
+          <!-- Chair arms -->
+          <rect x="82" y="160" width="28" height="80" rx="12" fill="#B8784E"/>
+          <rect x="250" y="160" width="28" height="80" rx="12" fill="#B8784E"/>
+          <rect x="78" y="155" width="36" height="16" rx="8" fill="#C4895A"/>
+          <rect x="246" y="155" width="36" height="16" rx="8" fill="#C4895A"/>
+
+          <!-- Body (blue cardigan) -->
+          <ellipse cx="180" cy="200" rx="42" ry="38" fill="#4A90D9"/>
+          <ellipse cx="180" cy="200" rx="40" ry="36" fill="#5A9AE0"/>
+
+          <!-- Neck -->
+          <rect x="168" y="160" width="24" height="22" rx="8" fill="#E8B896"/>
+
+          <!-- Head -->
+          <ellipse cx="180" cy="148" rx="35" ry="38" fill="#E8B896"/>
+
+          <!-- Hair (white/gray) -->
+          <ellipse cx="180" cy="118" rx="34" ry="18" fill="#D0D0D0"/>
+          <ellipse cx="152" cy="128" rx="14" ry="20" fill="#C8C8C8"/>
+          <ellipse cx="208" cy="128" rx="14" ry="20" fill="#C8C8C8"/>
+
+          <!-- Glasses -->
+          <rect x="158" y="146" width="20" height="14" rx="5" fill="none" stroke="#8B7355" stroke-width="2.5"/>
+          <rect x="182" y="146" width="20" height="14" rx="5" fill="none" stroke="#8B7355" stroke-width="2.5"/>
+          <line x1="178" y1="153" x2="182" y2="153" stroke="#8B7355" stroke-width="2.5"/>
+          <line x1="146" y1="153" x2="158" y2="153" stroke="#8B7355" stroke-width="2"/>
+          <line x1="202" y1="153" x2="212" y2="153" stroke="#8B7355" stroke-width="2"/>
+
+          <!-- Eyes -->
+          <ellipse cx="168" cy="153" rx="5" ry="5.5" fill="white"/>
+          <ellipse cx="192" cy="153" rx="5" ry="5.5" fill="white"/>
+          <ellipse cx="169" cy="153" rx="2.5" ry="3" fill="#4A3520"/>
+          <ellipse cx="193" cy="153" rx="2.5" ry="3" fill="#4A3520"/>
+
+          <!-- Smile -->
+          <path d="M170 167 Q180 173 190 167" stroke="#C07050" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+          <!-- Cheeks -->
+          <ellipse cx="158" cy="163" rx="8" ry="5" fill="rgba(220,120,100,0.3)"/>
+          <ellipse cx="202" cy="163" rx="8" ry="5" fill="rgba(220,120,100,0.3)"/>
+
+          <!-- Arm holding phone -->
+          <path d="M142 185 Q125 210 118 228" stroke="#4A90D9" stroke-width="20" stroke-linecap="round"/>
+          <ellipse cx="118" cy="228" rx="12" ry="10" fill="#E8B896"/>
+
+          <!-- Smartphone -->
+          <rect x="96" y="220" width="52" height="88" rx="8" fill="#1A3A6B"/>
+          <rect x="99" y="225" width="46" height="78" rx="5" fill="#EEF2FF"/>
+          <rect x="113" y="222" width="20" height="5" rx="2.5" fill="#0A1F40"/>
+          <!-- App icons on screen -->
+          <rect x="104" y="232" width="14" height="14" rx="3" fill="#5B9CF6"/>
+          <rect x="121" y="232" width="14" height="14" rx="3" fill="#34D399"/>
+          <rect x="124" y="250" width="10" height="10" rx="2" fill="#F59E0B"/>
+          <rect x="107" y="250" width="10" height="10" rx="2" fill="#EF4444"/>
+          <rect x="104" y="264" width="36" height="8" rx="2" fill="rgba(26,58,107,0.1)"/>
+          <rect x="104" y="276" width="26" height="8" rx="2" fill="rgba(26,58,107,0.07)"/>
+          <rect x="108" y="289" width="30" height="10" rx="3" fill="rgba(26,58,107,0.08)"/>
+
+          <!-- Floating app bubbles -->
+          <!-- WhatsApp -->
+          <circle cx="282" cy="170" r="28" fill="white" stroke="rgba(26,58,107,0.12)" stroke-width="1"/>
+          <circle cx="282" cy="170" r="18" fill="#25D366"/>
+          <path d="M282 160 Q292 162 294 170 Q294 178 286 182 L278 184 L280 178 Q274 175 274 168 Q274 160 282 160Z" fill="white"/>
+
+          <!-- Photos/Camera -->
+          <circle cx="310" cy="110" r="22" fill="white" stroke="rgba(26,58,107,0.12)" stroke-width="1"/>
+          <circle cx="310" cy="110" r="13" fill="#FF9500"/>
+          <circle cx="310" cy="110" r="7" fill="white" opacity="0.8"/>
+
+          <!-- Security -->
+          <circle cx="60" cy="140" r="26" fill="white" stroke="rgba(26,58,107,0.12)" stroke-width="1"/>
+          <path d="M60 128 L70 132 L70 143 Q70 151 60 155 Q50 151 50 143 L50 132 Z" fill="#1A3A6B"/>
+          <path d="M56 141 L59 144 L65 138" stroke="#F5C030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+          <!-- Map -->
+          <circle cx="42" cy="210" r="22" fill="white" stroke="rgba(26,58,107,0.12)" stroke-width="1"/>
+          <path d="M42 198 Q48 198 50 204 Q52 210 42 220 Q32 210 34 204 Q36 198 42 198Z" fill="#EA4335"/>
+          <circle cx="42" cy="205" r="4" fill="white"/>
+
+          <!-- Sparkles -->
+          <path d="M255 95 L257 101 L263 103 L257 105 L255 111 L253 105 L247 103 L253 101Z" fill="#F5C030" opacity="0.8"/>
+          <path d="M315 160 L316.5 164 L320.5 165.5 L316.5 167 L315 171 L313.5 167 L309.5 165.5 L313.5 164Z" fill="#F5C030" opacity="0.6"/>
+          <circle cx="80" cy="175" r="3" fill="#F5C030" opacity="0.5"/>
+          <circle cx="298" cy="140" r="2.5" fill="#F5C030" opacity="0.5"/>
+
+          <!-- Blanket on knees -->
+          <path d="M115 230 Q180 250 245 230 Q245 258 180 265 Q115 258 115 230Z" fill="#A0784E" opacity="0.7"/>
+          <line x1="130" y1="230" x2="128" y2="260" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="150" y1="228" x2="148" y2="264" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="170" y1="228" x2="170" y2="266" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="190" y1="228" x2="192" y2="266" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="210" y1="228" x2="213" y2="264" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <line x1="230" y1="230" x2="234" y2="260" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+
+          <!-- Tea cup -->
+          <rect x="28" y="240" width="38" height="6" rx="3" fill="#8B7355" opacity="0.4"/>
+          <path d="M33 220 Q33 240 37 240 L57 240 Q61 240 61 220 Q47 218 33 220Z" fill="#E8D5B0"/>
+          <path d="M34 222 Q47 226 60 222" stroke="rgba(200,140,60,0.5)" stroke-width="1.5" fill="none"/>
+          <path d="M40 215 Q38 210 40 206 Q42 202 40 198" stroke="rgba(180,180,180,0.6)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M48 214 Q46 209 48 205 Q50 201 48 197" stroke="rgba(180,180,180,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-  </div>
 
-  <!-- Corps texte -->
-  <div class="cover-body">
-    <div class="cover-category">Guide pratique numérique senior</div>
-
-    <div class="cover-title-main">
-      Mon smartphone<br>
-      <span class="cover-title-amp">&amp;</span> moi
+    <!-- TITLE ZONE -->
+    <div class="title-zone">
+      <div class="eyebrow">Le guide complet</div>
+      <div class="main-title">
+        Mon smartphone<br>
+        <span class="title-ampersand">&amp;</span> moi
+      </div>
+      <div class="title-divider"></div>
+      <div class="subtitle">
+        Le guide des seniors pour tout maitriser —<br>
+        WhatsApp, Photos, Impots, Sante &amp; bien plus
+      </div>
     </div>
 
-    <div class="cover-rule">
-      <div class="cover-rule-line"></div>
-      <div class="cover-rule-diamond"></div>
-      <div class="cover-rule-line"></div>
-    </div>
-
-    <div class="cover-subtitle">
-      Le guide complet des seniors pour tout maîtriser —<br>
-      simplement, pas à pas, en toute confiance
-    </div>
-
-    <!-- Stats -->
-    <div class="cover-stats">
+    <!-- STATS BAR -->
+    <div class="stats-bar">
       <div class="stat-item">
-        <span class="stat-num">29</span>
+        <span class="stat-number">29</span>
         <span class="stat-label">Chapitres</span>
       </div>
+      <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-num">6</span>
+        <span class="stat-number">6</span>
         <span class="stat-label">Annexes</span>
       </div>
+      <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-num">12</span>
-        <span class="stat-label">Tutoriels QR</span>
+        <span class="stat-number">200<span style="font-size:14px">+</span></span>
+        <span class="stat-label">Visuels</span>
       </div>
+      <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-num">98<small style="font-size:11px">/100</small></span>
-        <span class="stat-label">Score audit</span>
+        <span class="stat-number">12</span>
+        <span class="stat-label">QR codes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" style="color:#34D399">98</span>
+        <span class="stat-label">Score /100</span>
       </div>
     </div>
-  </div>
 
-  <!-- Footer couverture -->
-  <div class="cover-footer">
-    <div class="cover-footer-copy">© 2026 lifguido.com — Tous droits réservés</div>
-    <div class="cover-footer-score">
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="#B8923A">
-        <path d="M5 0L6.12 3.45H9.76L6.82 5.59L7.94 9.04L5 6.9L2.06 9.04L3.18 5.59L0.24 3.45H3.88L5 0Z"/>
-      </svg>
-      Version recommandée v9B
+    <!-- TOPIC TAGS -->
+    <div class="topics-zone">
+      <span class="topic-tag">iPhone &amp; Android</span>
+      <span class="topic-tag">Anti-arnaques</span>
+      <span class="topic-tag">ameli.fr</span>
+      <span class="topic-tag">FranceConnect</span>
+      <span class="topic-tag">WhatsApp</span>
+      <span class="topic-tag">Google Maps</span>
+      <span class="topic-tag">Emails</span>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="cover-footer">
+      <div class="footer-site">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="7" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+          <path d="M8 1C8 1 5 4 5 8C5 12 8 15 8 15" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+          <path d="M8 1C8 1 11 4 11 8C11 12 8 15 8 15" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+          <line x1="1" y1="8" x2="15" y2="8" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+        </svg>
+        lifguido.com
+      </div>
+      <div class="footer-update">Mis a jour · Edition 2026</div>
+      <div class="footer-score">v9B Recommande</div>
     </div>
   </div>
-
 </div>
 
 
-<p class="section-label">Dernière page — Fin du guide</p>
+<!-- ============ PAGE 2 : DERNIERE PAGE ============ -->
+<div>
+  <h2 class="section-label">Derniere page — Page de cloture</h2>
+  <div class="back-page">
+    <div class="side-bar"></div>
 
-<!-- ═══════════════ DERNIÈRE PAGE ═══════════════ -->
-<div class="last-page">
-  <div class="last-header"></div>
-
-  <div class="last-body">
-
-    <!-- Icône check -->
-    <div class="last-icon">
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-        <path d="M6 15L12 21L24 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <div class="back-top">
+      <div class="back-top-title">Continuez votre parcours</div>
+      <div class="back-main-heading">
+        Vous avez fait le bon choix.<br>Votre autonomie numerique commence ici.
+      </div>
+      <p class="back-description">
+        Retrouvez tous nos guides et ressources pour bien vieillir au naturel
+        et en toute serenite. Des milliers de seniors nous font deja confiance.
+      </p>
     </div>
 
-    <div class="last-title">
-      Félicitations !<br>Vous maîtrisez votre smartphone.
-    </div>
-
-    <div class="last-text">
-      Ce guide vous a accompagné pas à pas, du premier réglage jusqu'à vos démarches administratives en ligne. Gardez-le à portée — il est là chaque fois que vous en avez besoin.
-    </div>
-
-    <div class="last-sep">
-      <div class="last-sep-line"></div>
-      <div class="last-sep-text">Retrouvez-nous</div>
-      <div class="last-sep-line"></div>
-    </div>
-
-    <div class="last-links">
-
-      <!-- lifguido.com -->
-      <div class="link-card">
-        <div class="link-card-icon blue">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="2" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.5"/>
-            <path d="M2 9H20" stroke="white" stroke-width="1.5"/>
-            <path d="M7 13H10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <div class="back-links">
+      <div class="link-card primary">
+        <div class="link-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="9" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+            <path d="M14 5C14 5 11 8 11 14C11 20 14 23 14 23" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+            <path d="M14 5C14 5 17 8 17 14C17 20 14 23 14 23" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+            <line x1="5" y1="14" x2="23" y2="14" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
           </svg>
         </div>
-        <div class="link-card-text">
-          <div class="link-card-label">Boutique guides bien-vieillir</div>
-          <span class="link-card-url">lifguido.com</span>
-          <div class="link-card-desc">Découvrez tous nos guides pratiques : beauté, nutrition, bien-être, tech & épanouissement</div>
+        <div class="link-card-body">
+          <div class="link-card-label">Boutique guides digitaux</div>
+          <div class="link-card-url">lifguido.com</div>
+          <div class="link-card-desc">Tous nos guides bien-vieillir : smartphone, nutrition, beaute naturelle, bien-etre senior</div>
         </div>
+        <div class="link-card-arrow">&#8250;</div>
       </div>
 
-      <!-- lifbio.fr -->
-      <div class="link-card">
-        <div class="link-card-icon green">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M11 3C11 3 5 7 5 13C5 16.3 7.7 19 11 19C14.3 19 17 16.3 17 13C17 7 11 3 11 3Z" fill="none" stroke="white" stroke-width="1.5"/>
-            <path d="M11 19V10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M7 11C8.5 10 10 10 11 10" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+      <div class="link-card secondary">
+        <div class="link-card-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 4C9.5 4 6 7.8 6 13C6 18.2 10 22 14 26C18 22 22 18.2 22 13C22 7.8 18.5 4 14 4Z" fill="rgba(255,255,255,0.6)"/>
+            <path d="M14 4L14 26" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <div class="link-card-text">
+        <div class="link-card-body">
           <div class="link-card-label">Blog articles gratuits</div>
-          <span class="link-card-url green">lifbio.fr</span>
-          <div class="link-card-desc">Conseils bien-vieillir au naturel — Beauté · Nutrition · Bien-être · Tech · Épanouissement</div>
+          <div class="link-card-url">lifbio.fr</div>
+          <div class="link-card-desc">Articles gratuits : beaute naturelle, nutrition, bien-etre, tech senior — mis a jour chaque semaine</div>
+        </div>
+        <div class="link-card-arrow">&#8250;</div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-text">
+        "Ce guide vous a aide ? Offrez-le a un proche qui en a besoin."
+      </div>
+      <div class="cta-sub">
+        Pack famille disponible sur lifguido.com — 2 licences a 19,99 EUR<br>
+        Un cadeau qui change vraiment le quotidien
+      </div>
+    </div>
+
+    <div style="padding: 24px 50px; display:flex; flex-direction:column; gap:10px; width:100%">
+      <div style="font-family:'Lato',sans-serif; font-size:11px; color:#9CA3AF; text-align:center; letter-spacing:1px; text-transform:uppercase; font-weight:700; margin-bottom:4px;">Ils nous font confiance</div>
+      <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap;">
+        <div style="background:rgba(26,58,107,0.06); border:1px solid rgba(26,58,107,0.10); border-radius:8px; padding:10px 18px; text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#1A3A6B;">4.9/5</div>
+          <div style="font-size:9px; color:#6B7280; letter-spacing:0.5px; font-family:'Lato',sans-serif;">Satisfaction</div>
+        </div>
+        <div style="background:rgba(26,58,107,0.06); border:1px solid rgba(26,58,107,0.10); border-radius:8px; padding:10px 18px; text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#1A3A6B;">98/100</div>
+          <div style="font-size:9px; color:#6B7280; letter-spacing:0.5px; font-family:'Lato',sans-serif;">Score qualite</div>
+        </div>
+        <div style="background:rgba(45,90,27,0.06); border:1px solid rgba(45,90,27,0.10); border-radius:8px; padding:10px 18px; text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#2D5A1B;">2026</div>
+          <div style="font-size:9px; color:#6B7280; letter-spacing:0.5px; font-family:'Lato',sans-serif;">Edition a jour</div>
         </div>
       </div>
+    </div>
 
+    <div class="back-footer">
+      <div class="back-footer-logo">lifguido</div>
+      <div class="back-footer-copy">&copy; 2026 lifguido.com &middot; Tous droits reserves</div>
+      <div class="back-footer-edition">Edition 2026</div>
     </div>
   </div>
-
-  <!-- Footer bleu marine -->
-  <div class="last-footer">
-    <div class="last-footer-brand">
-      <div class="last-footer-logo-wrap">
-        <!-- Feuille SVG identique au header couverture -->
-        <svg class="last-footer-leaf" width="10" height="12" viewBox="0 0 12 14" fill="none">
-          <path d="M6 13 C6 13 1 9 1 5 C1 2.2 3.2 0.5 6 1 C8.8 0.5 11 2.2 11 5 C11 9 6 13 6 13Z" fill="#8BC34A"/>
-          <line x1="6" y1="13" x2="6" y2="5" stroke="#5D8A2E" stroke-width="0.8"/>
-        </svg>
-        <span class="last-footer-wordmark">lifguido</span>
-      </div>
-      <div class="last-footer-tagline">vos guides bien-vieillir</div>
-    </div>
-    <div class="last-footer-right">
-      lifguido.com &nbsp;·&nbsp; lifbio.fr<br>
-      Un projet bien-vieillir au naturel<br>
-      <span style="font-size:9px;color:#4A6A90;">© 2026 — Tous droits réservés</span>
-    </div>
-  </div>
-
 </div>
 
 </body>
