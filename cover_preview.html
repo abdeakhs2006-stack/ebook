@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aperçu couverture & dernière page — Mon smartphone & moi</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #d0d0d0; display: flex; flex-direction: column; align-items: center; gap: 60px; padding: 60px 20px; }
+
+  .page-label { font-family: Arial, sans-serif; font-size: 13px; color: #666; text-align: center; margin-bottom: -40px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* PAGE COUVERTURE */
+  .cover {
+    width: 595px; height: 842px;
+    background: #F5F0EB;
+    display: flex; flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    overflow: hidden;
+  }
+
+  /* Bande verte haut */
+  .cover-top-band {
+    width: 100%; background: #2D5A1B;
+    padding: 18px 35px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  /* Logo lifguido */
+  .logo-wrap { display: flex; flex-direction: column; align-items: flex-start; }
+  .logo-text {
+    font-family: 'Georgia', serif;
+    font-size: 22px; color: #F5F0EB; font-weight: normal; letter-spacing: 1px;
+    position: relative; display: inline-block;
+  }
+  .logo-leaf {
+    position: absolute; top: -10px; left: 16px;
+    font-size: 13px; transform: rotate(-10deg);
+  }
+  .logo-tagline { font-family: Arial, sans-serif; font-size: 9px; color: #a8c990; letter-spacing: 1px; margin-top: 2px; }
+  .logo-url { font-family: Arial, sans-serif; font-size: 10px; color: #c5ddb5; text-decoration: none; margin-top: 1px; }
+
+  /* Badge édition */
+  .edition-badge {
+    background: #F5F0EB; color: #2D5A1B;
+    font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
+    padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px;
+  }
+
+  /* Image zone */
+  .cover-image {
+    width: 100%; height: 340px;
+    background: linear-gradient(135deg, #4a7c3f 0%, #2D5A1B 40%, #1a3a10 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .cover-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, #F5F0EB 100%);
+  }
+  .cover-image-placeholder {
+    color: rgba(255,255,255,0.3); font-family: Arial, sans-serif; font-size: 12px;
+    text-align: center; z-index: 1;
+  }
+  .cover-image svg { width: 160px; height: 160px; opacity: 0.25; }
+
+  /* Contenu central */
+  .cover-content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 10px 50px 20px; text-align: center; gap: 16px;
+  }
+
+  .cover-pretitle {
+    font-family: Arial, sans-serif; font-size: 11px; color: #7a9a6a;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 38px; color: #2D5A1B; font-weight: bold; line-height: 1.15;
+    font-family: 'Georgia', serif;
+  }
+
+  .cover-title span { color: #4a7c3f; }
+
+  .cover-divider {
+    width: 60px; height: 2px; background: #c5a96a; border-radius: 2px;
+  }
+
+  .cover-subtitle {
+    font-family: Arial, sans-serif; font-size: 13px; color: #5a7a4a;
+    line-height: 1.6; max-width: 380px;
+  }
+
+  .cover-version {
+    font-family: Arial, sans-serif; font-size: 10px; color: #9aaa8a;
+    letter-spacing: 1px;
+  }
+
+  /* Pied de page couverture */
+  .cover-footer {
+    width: 100%; padding: 14px 35px;
+    border-top: 1px solid #ddd6cc;
+    display: flex; align-items: center; justify-content: space-between;
+    background: #F5F0EB;
+  }
+  .cover-footer-left { font-family: Arial, sans-serif; font-size: 9px; color: #9a9a8a; }
+  .cover-footer-right { font-family: Arial, sans-serif; font-size: 9px; color: #7a9a6a; }
+
+  /* ===================== */
+  /* DERNIÈRE PAGE         */
+  /* ===================== */
+  .last-page {
+    width: 595px; height: 842px;
+    background: #F5F0EB;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    overflow: hidden; padding: 0;
+  }
+
+  .last-top-band {
+    width: 100%; background: #2D5A1B; height: 8px;
+  }
+
+  .last-content {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 70px; gap: 40px; text-align: center;
+  }
+
+  .last-check {
+    font-size: 48px; color: #2D5A1B;
+  }
+
+  .last-title {
+    font-family: 'Georgia', serif; font-size: 26px; color: #2D5A1B;
+    line-height: 1.4;
+  }
+
+  .last-text {
+    font-family: Arial, sans-serif; font-size: 13px; color: #5a6a50;
+    line-height: 1.8; max-width: 400px;
+  }
+
+  .last-divider {
+    width: 80px; height: 1px; background: #c5ddb5;
+  }
+
+  .last-links {
+    display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%;
+  }
+
+  .last-link-block {
+    background: white; border: 1px solid #dde8d5;
+    border-radius: 12px; padding: 18px 30px;
+    width: 100%; display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(45,90,27,0.08);
+  }
+
+  .last-link-icon {
+    width: 42px; height: 42px; background: #2D5A1B;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  .last-link-info { text-align: left; }
+  .last-link-label { font-family: Arial, sans-serif; font-size: 10px; color: #9aaa8a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+  .last-link-url { font-family: 'Georgia', serif; font-size: 15px; color: #2D5A1B; font-weight: bold; }
+  .last-link-desc { font-family: Arial, sans-serif; font-size: 11px; color: #7a8a70; margin-top: 2px; }
+
+  .last-footer {
+    width: 100%; background: #2D5A1B;
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .last-footer-logo { font-family: 'Georgia', serif; font-size: 18px; color: #F5F0EB; position: relative; display: inline-block; }
+  .last-footer-leaf { position: absolute; top: -8px; left: 13px; font-size: 10px; transform: rotate(-10deg); }
+  .last-footer-tagline { font-family: Arial, sans-serif; font-size: 9px; color: #a8c990; margin-top: 3px; }
+  .last-footer-right { font-family: Arial, sans-serif; font-size: 10px; color: #a8c990; text-align: right; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<p class="page-label">PAGE 1 — COUVERTURE</p>
+
+<!-- COUVERTURE -->
+<div class="cover">
+
+  <!-- Bande verte haut avec logo -->
+  <div class="cover-top-band">
+    <div class="logo-wrap">
+      <div class="logo-text">
+        <span class="logo-leaf">🌿</span>
+        lifguido
+      </div>
+      <div class="logo-tagline">VOS GUIDES BIEN-VIEILLIR</div>
+      <div class="logo-url">lifguido.com</div>
+    </div>
+    <div class="edition-badge">Édition 2026</div>
+  </div>
+
+  <!-- Zone image -->
+  <div class="cover-image">
+    <div class="cover-image-placeholder">
+      <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <rect x="30" y="10" width="40" height="70" rx="6" fill="none" stroke="white" stroke-width="3"/>
+        <rect x="38" y="18" width="24" height="40" rx="2" fill="white" opacity="0.3"/>
+        <circle cx="50" cy="70" r="4" fill="white" opacity="0.6"/>
+        <path d="M45 35 Q50 25 55 35 Q60 28 65 38" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+      </svg>
+      <div style="margin-top:10px; font-size:11px; opacity:0.5;">[ photo senior avec smartphone ]</div>
+    </div>
+    <div class="cover-image-overlay"></div>
+  </div>
+
+  <!-- Contenu titre -->
+  <div class="cover-content">
+    <div class="cover-pretitle">Guide pratique</div>
+    <div class="cover-title">Mon smartphone<br><span>&</span> moi</div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Le guide complet des seniors pour tout maîtriser — simplement et naturellement</div>
+    <div class="cover-version">Version v9B &nbsp;·&nbsp; 29 chapitres &nbsp;·&nbsp; 6 annexes &nbsp;·&nbsp; 12 tutoriels vidéo</div>
+  </div>
+
+  <!-- Pied -->
+  <div class="cover-footer">
+    <div class="cover-footer-left">© 2026 lifguido.com — Tous droits réservés</div>
+    <div class="cover-footer-right">lifguido.com</div>
+  </div>
+
+</div>
+
+<p class="page-label">DERNIÈRE PAGE — FIN DU GUIDE</p>
+
+<!-- DERNIÈRE PAGE -->
+<div class="last-page">
+  <div class="last-top-band"></div>
+
+  <div class="last-content">
+    <div class="last-check">✅</div>
+    <div class="last-title">Félicitations !<br>Vous maîtrisez votre smartphone.</div>
+    <div class="last-text">
+      Ce guide vous a accompagné pas à pas. Gardez-le près de vous — il est là chaque fois que vous en avez besoin.
+    </div>
+    <div class="last-divider"></div>
+
+    <div class="last-links">
+
+      <!-- lifguido.com -->
+      <div class="last-link-block">
+        <div class="last-link-icon">🛍️</div>
+        <div class="last-link-info">
+          <div class="last-link-label">Boutique guides bien-vieillir</div>
+          <div class="last-link-url">lifguido.com</div>
+          <div class="last-link-desc">Découvrez tous nos guides : beauté, nutrition, bien-être, tech</div>
+        </div>
+      </div>
+
+      <!-- lifbio.fr -->
+      <div class="last-link-block">
+        <div class="last-link-icon">🌿</div>
+        <div class="last-link-info">
+          <div class="last-link-label">Blog articles gratuits</div>
+          <div class="last-link-url">lifbio.fr</div>
+          <div class="last-link-desc">Conseils bien-vieillir au naturel — Beauté · Nutrition · Bien-être · Tech</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer vert -->
+  <div class="last-footer">
+    <div>
+      <div class="last-footer-logo">
+        <span class="last-footer-leaf">🌿</span>
+        lifguido
+      </div>
+      <div class="last-footer-tagline">vos guides bien-vieillir</div>
+    </div>
+    <div class="last-footer-right">
+      lifguido.com<br>
+      Un projet lifbio.fr
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
