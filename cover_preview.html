@@ -2,289 +2,654 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aperçu couverture & dernière page — Mon smartphone & moi</title>
+<title>Couverture & Dernière page — Mon smartphone & moi v9B</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Georgia', serif; background: #d0d0d0; display: flex; flex-direction: column; align-items: center; gap: 60px; padding: 60px 20px; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
-  .page-label { font-family: Arial, sans-serif; font-size: 13px; color: #666; text-align: center; margin-bottom: -40px; letter-spacing: 1px; text-transform: uppercase; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-  /* PAGE COUVERTURE */
-  .cover {
-    width: 595px; height: 842px;
-    background: #F5F0EB;
-    display: flex; flex-direction: column;
+  body {
+    background: #2a2a2a;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 80px;
+    padding: 80px 30px;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+
+  .section-label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    text-align: center;
+    margin-bottom: -60px;
+  }
+
+  /* ═══════════════════════════════════
+     PAGE DE COUVERTURE
+  ═══════════════════════════════════ */
+  .cover {
+    width: 600px;
+    height: 848px;
+    background: #F7F3EE;
     position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
   }
 
-  /* Bande verte haut */
-  .cover-top-band {
-    width: 100%; background: #2D5A1B;
-    padding: 18px 35px;
-    display: flex; align-items: center; justify-content: space-between;
+  /* ── Bandeau supérieur ── */
+  .cover-header {
+    background: #1F3864;
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
   }
 
-  /* Logo lifguido */
-  .logo-wrap { display: flex; flex-direction: column; align-items: flex-start; }
-  .logo-text {
-    font-family: 'Georgia', serif;
-    font-size: 22px; color: #F5F0EB; font-weight: normal; letter-spacing: 1px;
-    position: relative; display: inline-block;
+  /* ── Logo lifguido ── */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
   }
-  .logo-leaf {
-    position: absolute; top: -10px; left: 16px;
-    font-size: 13px; transform: rotate(-10deg);
+
+  .logo-mark {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    position: relative;
   }
-  .logo-tagline { font-family: Arial, sans-serif; font-size: 9px; color: #a8c990; letter-spacing: 1px; margin-top: 2px; }
-  .logo-url { font-family: Arial, sans-serif; font-size: 10px; color: #c5ddb5; text-decoration: none; margin-top: 1px; }
+
+  .logo-svg-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+  }
+
+  .logo-wordmark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #F7F3EE;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  /* Feuille SVG positionnée sur le f */
+  .leaf-on-f {
+    position: absolute;
+    top: -11px;
+    left: 19px; /* positionné exactement sur le f */
+  }
+
+  .logo-tagline {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 8.5px;
+    font-weight: 300;
+    color: #8FAFD4;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+
+  .logo-url {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    color: #6B9BC4;
+    letter-spacing: 0.3px;
+  }
 
   /* Badge édition */
   .edition-badge {
-    background: #F5F0EB; color: #2D5A1B;
-    font-family: Arial, sans-serif; font-size: 10px; font-weight: bold;
-    padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    color: #C4D8EF;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
-  /* Image zone */
-  .cover-image {
-    width: 100%; height: 340px;
-    background: linear-gradient(135deg, #4a7c3f 0%, #2D5A1B 40%, #1a3a10 100%);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .cover-image-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, #F5F0EB 100%);
-  }
-  .cover-image-placeholder {
-    color: rgba(255,255,255,0.3); font-family: Arial, sans-serif; font-size: 12px;
-    text-align: center; z-index: 1;
-  }
-  .cover-image svg { width: 160px; height: 160px; opacity: 0.25; }
-
-  /* Contenu central */
-  .cover-content {
-    flex: 1; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 10px 50px 20px; text-align: center; gap: 16px;
+  /* ── Zone visuelle ── */
+  .cover-visual {
+    width: 100%;
+    height: 310px;
+    background: linear-gradient(160deg, #1F3864 0%, #2D4F8A 45%, #1a3055 100%);
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .cover-pretitle {
-    font-family: Arial, sans-serif; font-size: 11px; color: #7a9a6a;
-    letter-spacing: 2px; text-transform: uppercase;
+  .cover-visual::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #F7F3EE);
   }
 
-  .cover-title {
-    font-size: 38px; color: #2D5A1B; font-weight: bold; line-height: 1.15;
-    font-family: 'Georgia', serif;
+  /* Illustration smartphone SVG */
+  .phone-illustration {
+    position: relative;
+    z-index: 1;
   }
 
-  .cover-title span { color: #4a7c3f; }
+  /* Cercles décoratifs */
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
 
-  .cover-divider {
-    width: 60px; height: 2px; background: #c5a96a; border-radius: 2px;
+  /* ── Corps principal ── */
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 50px 0;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .cover-category {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #1F3864;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .cover-title-main {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 46px;
+    font-weight: 900;
+    color: #1F3864;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .cover-title-amp {
+    color: #B8923A;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .cover-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cover-rule-line {
+    height: 1px;
+    width: 60px;
+    background: #B8923A;
+    opacity: 0.6;
+  }
+
+  .cover-rule-diamond {
+    width: 6px; height: 6px;
+    background: #B8923A;
+    transform: rotate(45deg);
+    opacity: 0.7;
   }
 
   .cover-subtitle {
-    font-family: Arial, sans-serif; font-size: 13px; color: #5a7a4a;
-    line-height: 1.6; max-width: 380px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #3D5580;
+    line-height: 1.7;
+    max-width: 370px;
   }
 
-  .cover-version {
-    font-family: Arial, sans-serif; font-size: 10px; color: #9aaa8a;
-    letter-spacing: 1px;
+  .cover-stats {
+    display: flex;
+    gap: 0;
+    border: 1px solid #D8CEBC;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 4px;
   }
 
-  /* Pied de page couverture */
+  .stat-item {
+    padding: 10px 18px;
+    text-align: center;
+    border-right: 1px solid #D8CEBC;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1F3864;
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 8.5px;
+    font-weight: 500;
+    color: #8A9BB8;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* ── Pied de couverture ── */
   .cover-footer {
-    width: 100%; padding: 14px 35px;
-    border-top: 1px solid #ddd6cc;
-    display: flex; align-items: center; justify-content: space-between;
-    background: #F5F0EB;
+    border-top: 1px solid #E2DAD0;
+    padding: 12px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: #F7F3EE;
   }
-  .cover-footer-left { font-family: Arial, sans-serif; font-size: 9px; color: #9a9a8a; }
-  .cover-footer-right { font-family: Arial, sans-serif; font-size: 9px; color: #7a9a6a; }
 
-  /* ===================== */
-  /* DERNIÈRE PAGE         */
-  /* ===================== */
+  .cover-footer-copy {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 8px;
+    color: #AAA09A;
+    letter-spacing: 0.3px;
+  }
+
+  .cover-footer-score {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 9px;
+    color: #6B9BC4;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════
+     DERNIÈRE PAGE
+  ═══════════════════════════════════ */
   .last-page {
-    width: 595px; height: 842px;
-    background: #F5F0EB;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: space-between;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
-    overflow: hidden; padding: 0;
+    width: 600px;
+    height: 848px;
+    background: #F7F3EE;
+    position: relative;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  .last-top-band {
-    width: 100%; background: #2D5A1B; height: 8px;
+  /* Bandeau bleu top */
+  .last-header {
+    background: #1F3864;
+    height: 8px;
+    flex-shrink: 0;
   }
 
-  .last-content {
-    flex: 1; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 60px 70px; gap: 40px; text-align: center;
+  .last-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 70px;
+    gap: 32px;
+    text-align: center;
   }
 
-  .last-check {
-    font-size: 48px; color: #2D5A1B;
+  .last-icon {
+    width: 64px; height: 64px;
+    background: #1F3864;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
   }
 
   .last-title {
-    font-family: 'Georgia', serif; font-size: 26px; color: #2D5A1B;
-    line-height: 1.4;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1F3864;
+    line-height: 1.35;
   }
 
   .last-text {
-    font-family: Arial, sans-serif; font-size: 13px; color: #5a6a50;
-    line-height: 1.8; max-width: 400px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #5A6878;
+    line-height: 1.8;
+    max-width: 380px;
   }
 
-  .last-divider {
-    width: 80px; height: 1px; background: #c5ddb5;
+  .last-sep {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+  }
+  .last-sep-line { flex: 1; height: 1px; background: #D8CEBC; }
+  .last-sep-text {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 9px; color: #B0A898; letter-spacing: 2px; text-transform: uppercase;
   }
 
-  .last-links {
-    display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%;
+  .last-links { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+
+  .link-card {
+    background: white;
+    border: 1px solid #E5DDD5;
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+    box-shadow: 0 2px 12px rgba(31,56,100,0.06);
+    transition: box-shadow 0.2s;
   }
 
-  .last-link-block {
-    background: white; border: 1px solid #dde8d5;
-    border-radius: 12px; padding: 18px 30px;
-    width: 100%; display: flex; align-items: center; gap: 16px;
-    box-shadow: 0 2px 8px rgba(45,90,27,0.08);
+  .link-card-icon {
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
   }
 
-  .last-link-icon {
-    width: 42px; height: 42px; background: #2D5A1B;
-    border-radius: 10px; display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
+  .link-card-icon.blue { background: #1F3864; }
+  .link-card-icon.green { background: #2D5A1B; }
+
+  .link-card-text { flex: 1; }
+
+  .link-card-label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 9px; font-weight: 600;
+    color: #AAA09A; text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 4px;
   }
 
-  .last-link-info { text-align: left; }
-  .last-link-label { font-family: Arial, sans-serif; font-size: 10px; color: #9aaa8a; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
-  .last-link-url { font-family: 'Georgia', serif; font-size: 15px; color: #2D5A1B; font-weight: bold; }
-  .last-link-desc { font-family: Arial, sans-serif; font-size: 11px; color: #7a8a70; margin-top: 2px; }
+  .link-card-url {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px; font-weight: 700;
+    color: #1F3864; display: block; margin-bottom: 3px;
+  }
 
+  .link-card-url.green { color: #2D5A1B; }
+
+  .link-card-desc {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11px; color: #7A8898; line-height: 1.5;
+  }
+
+  /* Pied dernière page */
   .last-footer {
-    width: 100%; background: #2D5A1B;
-    padding: 20px 40px;
-    display: flex; align-items: center; justify-content: space-between;
+    background: #1F3864;
+    padding: 22px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
   }
 
-  .last-footer-logo { font-family: 'Georgia', serif; font-size: 18px; color: #F5F0EB; position: relative; display: inline-block; }
-  .last-footer-leaf { position: absolute; top: -8px; left: 13px; font-size: 10px; transform: rotate(-10deg); }
-  .last-footer-tagline { font-family: Arial, sans-serif; font-size: 9px; color: #a8c990; margin-top: 3px; }
-  .last-footer-right { font-family: Arial, sans-serif; font-size: 10px; color: #a8c990; text-align: right; line-height: 1.6; }
+  .last-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .last-footer-logo-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+  }
+
+  .last-footer-wordmark {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px; font-weight: 400;
+    color: #F7F3EE; letter-spacing: 0.5px; line-height: 1;
+  }
+
+  .last-footer-leaf { position: absolute; top: -9px; left: 17px; }
+
+  .last-footer-tagline {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 8px; font-weight: 300;
+    color: #7A9BB8; letter-spacing: 1.8px; text-transform: uppercase;
+  }
+
+  .last-footer-right {
+    text-align: right;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10px; font-weight: 400;
+    color: #6B8AB0; line-height: 1.8;
+  }
+
 </style>
 </head>
 <body>
 
-<p class="page-label">PAGE 1 — COUVERTURE</p>
+<p class="section-label">Page 1 — Couverture</p>
 
-<!-- COUVERTURE -->
+<!-- ═══════════════ COUVERTURE ═══════════════ -->
 <div class="cover">
 
-  <!-- Bande verte haut avec logo -->
-  <div class="cover-top-band">
-    <div class="logo-wrap">
-      <div class="logo-text">
-        <span class="logo-leaf">🌿</span>
-        lifguido
+  <!-- Header bleu marine -->
+  <div class="cover-header">
+
+    <!-- Logo lifguido avec feuille SVG sur le f -->
+    <div class="logo">
+      <div class="logo-mark">
+        <div class="logo-svg-wrap">
+          <!-- Feuille SVG exacte sur la lettre f -->
+          <svg class="leaf-on-f" width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 13 C6 13 1 9 1 5 C1 2.2 3.2 0.5 6 1 C8.8 0.5 11 2.2 11 5 C11 9 6 13 6 13Z" fill="#8BC34A"/>
+            <line x1="6" y1="13" x2="6" y2="5" stroke="#5D8A2E" stroke-width="0.8"/>
+          </svg>
+          <span class="logo-wordmark">lifguido</span>
+        </div>
       </div>
-      <div class="logo-tagline">VOS GUIDES BIEN-VIEILLIR</div>
+      <div class="logo-tagline">vos guides bien-vieillir</div>
       <div class="logo-url">lifguido.com</div>
     </div>
+
     <div class="edition-badge">Édition 2026</div>
   </div>
 
-  <!-- Zone image -->
-  <div class="cover-image">
-    <div class="cover-image-placeholder">
-      <svg viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
-        <rect x="30" y="10" width="40" height="70" rx="6" fill="none" stroke="white" stroke-width="3"/>
-        <rect x="38" y="18" width="24" height="40" rx="2" fill="white" opacity="0.3"/>
-        <circle cx="50" cy="70" r="4" fill="white" opacity="0.6"/>
-        <path d="M45 35 Q50 25 55 35 Q60 28 65 38" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+  <!-- Zone visuelle -->
+  <div class="cover-visual">
+    <!-- Cercles déco -->
+    <div class="deco-circle" style="width:300px;height:300px;top:-80px;right:-80px;"></div>
+    <div class="deco-circle" style="width:180px;height:180px;bottom:-40px;left:-40px;background:rgba(255,255,255,0.03)"></div>
+
+    <!-- Illustration smartphone SVG propre -->
+    <div class="phone-illustration">
+      <svg width="150" height="220" viewBox="0 0 150 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Corps du téléphone -->
+        <rect x="25" y="10" width="100" height="175" rx="14" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.4" stroke-width="2"/>
+        <!-- Écran -->
+        <rect x="33" y="24" width="84" height="135" rx="8" fill="white" fill-opacity="0.08"/>
+        <!-- Notch -->
+        <rect x="57" y="18" width="36" height="5" rx="2.5" fill="white" fill-opacity="0.3"/>
+        <!-- Bouton home -->
+        <circle cx="75" cy="194" r="7" fill="none" stroke="white" stroke-opacity="0.35" stroke-width="1.5"/>
+        <!-- Interface simulée -->
+        <rect x="42" y="38" width="66" height="8" rx="4" fill="white" fill-opacity="0.2"/>
+        <rect x="42" y="54" width="45" height="5" rx="2.5" fill="white" fill-opacity="0.13"/>
+        <!-- Icônes apps -->
+        <rect x="42" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <rect x="68" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <rect x="94" y="72" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <rect x="42" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <rect x="68" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <rect x="94" y="100" width="20" height="20" rx="5" fill="white" fill-opacity="0.15"/>
+        <!-- Barre de navigation -->
+        <rect x="52" y="136" width="46" height="3" rx="1.5" fill="white" fill-opacity="0.2"/>
+        <!-- Signal wifi -->
+        <path d="M66 47 Q75 40 84 47" stroke="white" stroke-opacity="0.5" stroke-width="1.5" fill="none"/>
+        <path d="M69 50 Q75 44 81 50" stroke="white" stroke-opacity="0.7" stroke-width="1.5" fill="none"/>
+        <circle cx="75" cy="54" r="1.5" fill="white" fill-opacity="0.8"/>
+        <!-- Boutons latéraux -->
+        <rect x="23" y="55" width="2" height="18" rx="1" fill="white" fill-opacity="0.25"/>
+        <rect x="23" y="80" width="2" height="25" rx="1" fill="white" fill-opacity="0.25"/>
+        <rect x="125" y="65" width="2" height="20" rx="1" fill="white" fill-opacity="0.25"/>
       </svg>
-      <div style="margin-top:10px; font-size:11px; opacity:0.5;">[ photo senior avec smartphone ]</div>
     </div>
-    <div class="cover-image-overlay"></div>
   </div>
 
-  <!-- Contenu titre -->
-  <div class="cover-content">
-    <div class="cover-pretitle">Guide pratique</div>
-    <div class="cover-title">Mon smartphone<br><span>&</span> moi</div>
-    <div class="cover-divider"></div>
-    <div class="cover-subtitle">Le guide complet des seniors pour tout maîtriser — simplement et naturellement</div>
-    <div class="cover-version">Version v9B &nbsp;·&nbsp; 29 chapitres &nbsp;·&nbsp; 6 annexes &nbsp;·&nbsp; 12 tutoriels vidéo</div>
+  <!-- Corps texte -->
+  <div class="cover-body">
+    <div class="cover-category">Guide pratique numérique senior</div>
+
+    <div class="cover-title-main">
+      Mon smartphone<br>
+      <span class="cover-title-amp">&amp;</span> moi
+    </div>
+
+    <div class="cover-rule">
+      <div class="cover-rule-line"></div>
+      <div class="cover-rule-diamond"></div>
+      <div class="cover-rule-line"></div>
+    </div>
+
+    <div class="cover-subtitle">
+      Le guide complet des seniors pour tout maîtriser —<br>
+      simplement, pas à pas, en toute confiance
+    </div>
+
+    <!-- Stats -->
+    <div class="cover-stats">
+      <div class="stat-item">
+        <span class="stat-num">29</span>
+        <span class="stat-label">Chapitres</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Annexes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Tutoriels QR</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">98<small style="font-size:11px">/100</small></span>
+        <span class="stat-label">Score audit</span>
+      </div>
+    </div>
   </div>
 
-  <!-- Pied -->
+  <!-- Footer couverture -->
   <div class="cover-footer">
-    <div class="cover-footer-left">© 2026 lifguido.com — Tous droits réservés</div>
-    <div class="cover-footer-right">lifguido.com</div>
+    <div class="cover-footer-copy">© 2026 lifguido.com — Tous droits réservés</div>
+    <div class="cover-footer-score">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="#B8923A">
+        <path d="M5 0L6.12 3.45H9.76L6.82 5.59L7.94 9.04L5 6.9L2.06 9.04L3.18 5.59L0.24 3.45H3.88L5 0Z"/>
+      </svg>
+      Version recommandée v9B
+    </div>
   </div>
 
 </div>
 
-<p class="page-label">DERNIÈRE PAGE — FIN DU GUIDE</p>
 
-<!-- DERNIÈRE PAGE -->
+<p class="section-label">Dernière page — Fin du guide</p>
+
+<!-- ═══════════════ DERNIÈRE PAGE ═══════════════ -->
 <div class="last-page">
-  <div class="last-top-band"></div>
+  <div class="last-header"></div>
 
-  <div class="last-content">
-    <div class="last-check">✅</div>
-    <div class="last-title">Félicitations !<br>Vous maîtrisez votre smartphone.</div>
-    <div class="last-text">
-      Ce guide vous a accompagné pas à pas. Gardez-le près de vous — il est là chaque fois que vous en avez besoin.
+  <div class="last-body">
+
+    <!-- Icône check -->
+    <div class="last-icon">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M6 15L12 21L24 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
-    <div class="last-divider"></div>
+
+    <div class="last-title">
+      Félicitations !<br>Vous maîtrisez votre smartphone.
+    </div>
+
+    <div class="last-text">
+      Ce guide vous a accompagné pas à pas, du premier réglage jusqu'à vos démarches administratives en ligne. Gardez-le à portée — il est là chaque fois que vous en avez besoin.
+    </div>
+
+    <div class="last-sep">
+      <div class="last-sep-line"></div>
+      <div class="last-sep-text">Retrouvez-nous</div>
+      <div class="last-sep-line"></div>
+    </div>
 
     <div class="last-links">
 
       <!-- lifguido.com -->
-      <div class="last-link-block">
-        <div class="last-link-icon">🛍️</div>
-        <div class="last-link-info">
-          <div class="last-link-label">Boutique guides bien-vieillir</div>
-          <div class="last-link-url">lifguido.com</div>
-          <div class="last-link-desc">Découvrez tous nos guides : beauté, nutrition, bien-être, tech</div>
+      <div class="link-card">
+        <div class="link-card-icon blue">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="2" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.5"/>
+            <path d="M2 9H20" stroke="white" stroke-width="1.5"/>
+            <path d="M7 13H10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="link-card-text">
+          <div class="link-card-label">Boutique guides bien-vieillir</div>
+          <span class="link-card-url">lifguido.com</span>
+          <div class="link-card-desc">Découvrez tous nos guides pratiques : beauté, nutrition, bien-être, tech & épanouissement</div>
         </div>
       </div>
 
       <!-- lifbio.fr -->
-      <div class="last-link-block">
-        <div class="last-link-icon">🌿</div>
-        <div class="last-link-info">
-          <div class="last-link-label">Blog articles gratuits</div>
-          <div class="last-link-url">lifbio.fr</div>
-          <div class="last-link-desc">Conseils bien-vieillir au naturel — Beauté · Nutrition · Bien-être · Tech</div>
+      <div class="link-card">
+        <div class="link-card-icon green">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3C11 3 5 7 5 13C5 16.3 7.7 19 11 19C14.3 19 17 16.3 17 13C17 7 11 3 11 3Z" fill="none" stroke="white" stroke-width="1.5"/>
+            <path d="M11 19V10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 11C8.5 10 10 10 11 10" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="link-card-text">
+          <div class="link-card-label">Blog articles gratuits</div>
+          <span class="link-card-url green">lifbio.fr</span>
+          <div class="link-card-desc">Conseils bien-vieillir au naturel — Beauté · Nutrition · Bien-être · Tech · Épanouissement</div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Footer vert -->
+  <!-- Footer bleu marine -->
   <div class="last-footer">
-    <div>
-      <div class="last-footer-logo">
-        <span class="last-footer-leaf">🌿</span>
-        lifguido
+    <div class="last-footer-brand">
+      <div class="last-footer-logo-wrap">
+        <!-- Feuille SVG identique au header couverture -->
+        <svg class="last-footer-leaf" width="10" height="12" viewBox="0 0 12 14" fill="none">
+          <path d="M6 13 C6 13 1 9 1 5 C1 2.2 3.2 0.5 6 1 C8.8 0.5 11 2.2 11 5 C11 9 6 13 6 13Z" fill="#8BC34A"/>
+          <line x1="6" y1="13" x2="6" y2="5" stroke="#5D8A2E" stroke-width="0.8"/>
+        </svg>
+        <span class="last-footer-wordmark">lifguido</span>
       </div>
       <div class="last-footer-tagline">vos guides bien-vieillir</div>
     </div>
     <div class="last-footer-right">
-      lifguido.com<br>
-      Un projet lifbio.fr
+      lifguido.com &nbsp;·&nbsp; lifbio.fr<br>
+      Un projet bien-vieillir au naturel<br>
+      <span style="font-size:9px;color:#4A6A90;">© 2026 — Tous droits réservés</span>
     </div>
   </div>
 
