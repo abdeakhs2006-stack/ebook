@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon smartphone & moi — Couverture v9B</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Lato:wght@300;400;700;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#d0c9bc;
+    display:flex; flex-direction:column; align-items:center;
+    padding:40px 20px; font-family:'Lato',sans-serif; gap:60px;
+  }
+
+  /* ===== SHARED ===== */
+  .page {
+    width:595px; height:842px;
+    background:linear-gradient(165deg,#FFFBF3 0%,#FEF3DA 55%,#FAE8B8 100%);
+    position:relative; overflow:hidden;
+    box-shadow:0 24px 64px rgba(0,0,0,0.28);
+    display:flex; flex-direction:column;
+  }
+  .side-bar {
+    position:absolute; left:0; top:0; bottom:0; width:7px;
+    background:linear-gradient(180deg,#1A3A6B 0%,#2C569E 50%,#1A3A6B 100%);
+    z-index:10;
+  }
+  .page-footer {
+    margin-top:auto; padding:11px 28px;
+    background:linear-gradient(135deg,#1A3A6B 0%,#1D3E74 100%);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .footer-brand {
+    font-family:'Lato',sans-serif; font-size:11.5px; font-weight:700;
+    color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:6px;
+  }
+  .footer-edition {
+    font-family:'Lato',sans-serif; font-size:10.5px; font-weight:700;
+    color:#F5C030; letter-spacing:0.8px;
+  }
+  .logo-wordmark {
+    display:flex; align-items:center;
+    font-family:'Playfair Display',serif; font-size:21px; font-weight:700;
+    color:#2D5A1B; line-height:1; letter-spacing:-0.3px;
+  }
+  .logo-f-wrap { position:relative; display:inline-block; }
+  .logo-leaf   { position:absolute; top:-8px; left:2px; }
+  .logo-tagline {
+    font-family:'Lato',sans-serif; font-size:8.5px;
+    color:#4A8A2A; letter-spacing:1.5px; text-transform:uppercase;
+  }
+  .page-header {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px 14px 28px;
+    border-bottom:1px solid rgba(26,58,107,0.10);
+  }
+
+  /* ===== PAGE 1 — COUVERTURE ===== */
+  .cover-title-area {
+    padding:16px 32px 10px 32px; text-align:center;
+  }
+  .category-label {
+    font-family:'Lato',sans-serif; font-size:9.5px; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase; color:#B87A10; margin-bottom:8px;
+  }
+  .main-title {
+    font-family:'Playfair Display',serif; font-size:44px; font-weight:800;
+    color:#1A3A6B; line-height:1.0; margin-bottom:8px;
+  }
+  .ampersand { color:#C8880E; font-style:italic; }
+  .title-rule {
+    width:44px; height:3px;
+    background:linear-gradient(90deg,#1A3A6B,#C8880E);
+    border-radius:2px; margin:0 auto 10px auto;
+  }
+  .subtitle {
+    font-family:'Playfair Display',serif; font-size:13.5px; font-weight:400;
+    font-style:italic; color:#3A5888; line-height:1.45; max-width:420px; margin:0 auto;
+  }
+
+  /* Pain points strip — juste au-dessus de la photo */
+  .pain-strip {
+    margin:12px 28px 0 28px;
+    background:rgba(26,58,107,0.06);
+    border:1px solid rgba(26,58,107,0.12);
+    border-radius:10px;
+    padding:10px 14px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .pain-item {
+    display:flex; align-items:flex-start; gap:8px;
+  }
+  .pain-dot {
+    width:7px; height:7px; border-radius:50%;
+    background:#C8880E; margin-top:4px; flex-shrink:0;
+  }
+  .pain-text {
+    font-family:'Lato',sans-serif; font-size:11px; color:#2D3748;
+    line-height:1.4; font-style:italic;
+  }
+
+  /* Hero photo */
+  .hero-wrap {
+    position:relative; margin:12px 28px 0 28px;
+    border-radius:12px; overflow:hidden;
+    box-shadow:0 8px 28px rgba(26,58,107,0.20); height:250px; flex-shrink:0;
+  }
+  .hero-img {
+    width:100%; height:100%; object-fit:cover; object-position:center 12%; display:block;
+  }
+  .hero-gradient {
+    position:absolute; left:0; right:0; bottom:0; height:70px;
+    background:linear-gradient(to top,rgba(18,38,80,0.82) 0%,transparent 100%);
+  }
+  .hero-caption {
+    position:absolute; bottom:10px; left:14px; right:14px;
+    display:flex; align-items:flex-end; justify-content:space-between;
+  }
+  .hero-quote {
+    font-family:'Playfair Display',serif; font-style:italic; font-size:12px;
+    color:rgba(255,255,255,0.92); text-shadow:0 1px 4px rgba(0,0,0,0.4);
+  }
+  .hero-rating { color:#F5C030; font-size:13px; letter-spacing:1px; }
+
+  /* Stats bar */
+  .stats-bar {
+    margin:12px 28px 0 28px;
+    background:linear-gradient(135deg,#1A3A6B 0%,#22468A 100%);
+    border-radius:9px; padding:11px 14px;
+    display:flex; align-items:center; justify-content:space-around;
+    box-shadow:0 4px 14px rgba(26,58,107,0.26);
+  }
+  .stat-item { display:flex; flex-direction:column; align-items:center; gap:2px; }
+  .stat-num  { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:#F5C030; line-height:1; }
+  .stat-lbl  { font-family:'Lato',sans-serif; font-size:7.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.68); }
+  .stat-sep  { width:1px; height:24px; background:rgba(255,255,255,0.14); }
+
+  /* Promise row */
+  .promise-row {
+    padding:9px 32px 0 32px;
+    display:flex; flex-wrap:wrap; gap:5px; justify-content:center;
+  }
+  .promise-tag {
+    background:rgba(26,58,107,0.07); border:1px solid rgba(26,58,107,0.14);
+    color:#1A3A6B; font-family:'Lato',sans-serif;
+    font-size:9.5px; font-weight:700; padding:3px 9px; border-radius:20px;
+  }
+
+
+  /* ===== PAGE 2 — DERNIERE PAGE ===== */
+  .back-page .side-bar {
+    background:linear-gradient(180deg,#2D5A1B 0%,#4A8A2A 50%,#2D5A1B 100%);
+  }
+  .back-title-area {
+    padding:18px 36px 12px 36px; text-align:center;
+  }
+  .bravo-label {
+    font-family:'Lato',sans-serif; font-size:9.5px; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase; color:#B87A10; margin-bottom:8px;
+  }
+  .bravo-heading {
+    font-family:'Playfair Display',serif; font-size:24px; font-weight:700;
+    color:#1A3A6B; line-height:1.2; margin-bottom:8px;
+  }
+  .bravo-sub {
+    font-family:'Lato',sans-serif; font-size:12px; color:#4A5A78; line-height:1.55;
+    max-width:430px; margin:0 auto;
+  }
+
+  /* Solutions grid — les vraies promesses tenues */
+  .solutions-block {
+    margin:14px 28px 0 28px;
+    display:grid; grid-template-columns:1fr 1fr; gap:9px;
+  }
+  .solution-card {
+    background:white; border:1px solid rgba(26,58,107,0.09);
+    border-radius:10px; padding:12px 13px;
+    box-shadow:0 2px 8px rgba(26,58,107,0.07);
+    display:flex; flex-direction:column; gap:5px;
+  }
+  .solution-icon-row {
+    display:flex; align-items:center; gap:7px;
+  }
+  .solution-icon {
+    width:30px; height:30px; border-radius:8px;
+    background:#EEF3FF; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; font-size:15px; line-height:1;
+  }
+  .solution-title {
+    font-family:'Lato',sans-serif; font-size:10.5px; font-weight:900;
+    color:#1A3A6B; line-height:1.2;
+  }
+  .solution-desc {
+    font-family:'Lato',sans-serif; font-size:10px; color:#4A5568;
+    line-height:1.45;
+  }
+
+  /* Closing promise */
+  .closing-promise {
+    margin:14px 28px 0 28px;
+    background:linear-gradient(135deg,#1A3A6B 0%,#22468A 100%);
+    border-radius:10px; padding:14px 18px;
+    box-shadow:0 4px 14px rgba(26,58,107,0.22);
+  }
+  .closing-quote {
+    font-family:'Playfair Display',serif; font-style:italic; font-size:13.5px;
+    color:rgba(255,255,255,0.95); line-height:1.55; margin-bottom:8px;
+  }
+  .closing-caption {
+    font-family:'Lato',sans-serif; font-size:10px; color:rgba(255,255,255,0.55);
+    font-weight:700; letter-spacing:0.5px;
+  }
+
+  /* Next steps compact */
+  .next-steps {
+    margin:12px 28px 0 28px;
+    display:flex; gap:9px;
+  }
+  .next-step-card {
+    flex:1; background:rgba(26,58,107,0.05);
+    border:1px solid rgba(26,58,107,0.10);
+    border-radius:9px; padding:10px 11px;
+    display:flex; gap:8px; align-items:flex-start;
+  }
+  .step-num {
+    width:20px; height:20px; background:#F5C030; color:#1A3A6B;
+    border-radius:50%; font-family:'Lato',sans-serif; font-size:10.5px;
+    font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .step-body { flex:1; }
+  .step-title {
+    font-family:'Lato',sans-serif; font-size:10px; font-weight:900;
+    color:#1A3A6B; margin-bottom:2px;
+  }
+  .step-text { font-family:'Lato',sans-serif; font-size:9.5px; color:#4A5568; line-height:1.4; }
+
+  /* lifbio link */
+  .lifbio-row {
+    margin:12px 28px 0 28px; text-align:center;
+  }
+  .lifbio-intro { font-family:'Lato',sans-serif; font-size:10.5px; color:#6B7280; }
+  .lifbio-link  {
+    font-family:'Lato',sans-serif; font-size:10.5px; color:#2D5A1B;
+    font-weight:900; text-decoration:none;
+    border-bottom:1px solid rgba(45,90,27,0.4); padding-bottom:1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1 : COUVERTURE ===== -->
+<div class="page">
+  <div class="side-bar"></div>
+
+  <div class="page-header">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <div class="logo-wordmark">
+        li<span class="logo-f-wrap">
+          <svg class="logo-leaf" width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
+            <path d="M7 2L7 12" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
+          </svg>f
+        </span>guido
+      </div>
+      <span class="logo-tagline">vos guides bien-vieillir</span>
+    </div>
+  </div>
+
+  <div class="cover-title-area">
+    <div class="category-label">Le guide complet des seniors</div>
+    <div class="main-title">Mon smartphone <span class="ampersand">&amp;</span> moi</div>
+    <div class="title-rule"></div>
+    <div class="subtitle">Tout maitriser pas a pas &mdash; en toute serenite</div>
+  </div>
+
+  <!-- Pain points : les vraies douleurs du lecteur -->
+  <div class="pain-strip">
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <div class="pain-text">Vous avez peur de vous faire arnaquer ou de perdre vos photos ?</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <div class="pain-text">Vous appelez vos enfants pour le moindre probleme sur votre telephone ?</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-dot"></div>
+      <div class="pain-text">Impots, ameli, retraite... vous voulez tout gerer seul, sans faire la queue ?</div>
+    </div>
+  </div>
+
+  <!-- Hero photo -->
+  <div class="hero-wrap">
+    <img class="hero-img" src="assets/senior_reading.webp" alt="Senior lisant le guide">
+    <div class="hero-gradient"></div>
+    <div class="hero-caption">
+      <div class="hero-quote">"Enfin un guide ecrit pour nous."</div>
+      <div class="hero-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">29</span>
+      <span class="stat-lbl">Chapitres</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">6</span>
+      <span class="stat-lbl">Annexes</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">200+</span>
+      <span class="stat-lbl">Visuels</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num">12</span>
+      <span class="stat-lbl">QR Codes</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat-item">
+      <span class="stat-num" style="color:#5FECA0">98</span>
+      <span class="stat-lbl">Score /100</span>
+    </div>
+  </div>
+
+  <!-- Promises row -->
+  <div class="promise-row">
+    <span class="promise-tag">Anti-arnaques</span>
+    <span class="promise-tag">WhatsApp &amp; Visio famille</span>
+    <span class="promise-tag">Photos sauvegardees</span>
+    <span class="promise-tag">FranceConnect &amp; ameli</span>
+    <span class="promise-tag">Impots en ligne</span>
+    <span class="promise-tag">Google Maps</span>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+        <path d="M8 1.5C8 1.5 5.5 4 5.5 8C5.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <path d="M8 1.5C8 1.5 10.5 4 10.5 8C10.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+      </svg>
+      lifguido.com
+    </div>
+    <div class="footer-edition">Edition 2026</div>
+  </div>
+</div>
+
+
+<!-- ===== PAGE 2 : DERNIERE PAGE ===== -->
+<div class="page back-page">
+  <div class="side-bar"></div>
+
+  <div class="page-header">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <div class="logo-wordmark">
+        li<span class="logo-f-wrap">
+          <svg class="logo-leaf" width="13" height="13" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1C4.5 1 2.5 2.8 2.5 5.5C2.5 8.2 5 10 7 13C9 10 11.5 8.2 11.5 5.5C11.5 2.8 9.5 1 7 1Z" fill="#2D5A1B"/>
+            <path d="M7 2L7 12" stroke="#4A8A2A" stroke-width="0.8" stroke-linecap="round"/>
+          </svg>f
+        </span>guido
+      </div>
+      <span class="logo-tagline">vos guides bien-vieillir</span>
+    </div>
+  </div>
+
+  <div class="back-title-area">
+    <div class="bravo-label">Vous etes arrive au bout</div>
+    <div class="bravo-heading">Felicitations ! Vous n'etes plus<br>dependant de personne.</div>
+    <div class="bravo-sub">Voici ce que vous pouvez faire desormais, seul, avec votre telephone.</div>
+  </div>
+
+  <!-- 6 solutions — basées sur les vraies promesses de l'ebook -->
+  <div class="solutions-block">
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">🛡️</div>
+        <div class="solution-title">Les arnaques ?<br>Vous les reconnaissez.</div>
+      </div>
+      <div class="solution-desc">Les 3 signaux d'alarme, les faux SMS, les faux "Microsoft"... vous ne vous ferez plus jamais avoir.</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">👨‍👩‍👧</div>
+        <div class="solution-title">Vos proches sont<br>a portee de doigt.</div>
+      </div>
+      <div class="solution-desc">WhatsApp, visio, photos partagees... comme s'ils etaient dans la piece, ou qu'ils soient.</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">📄</div>
+        <div class="solution-title">Impots, ameli, retraite —<br>depuis votre canape.</div>
+      </div>
+      <div class="solution-desc">FranceConnect, impots.gouv, ameli.fr : vous gerez tout en ligne, sans file d'attente.</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">📸</div>
+        <div class="solution-title">Vos photos<br>ne disparaitront plus.</div>
+      </div>
+      <div class="solution-desc">Sauvegarde automatique, partage avec la famille, memoire liberee — vos souvenirs sont en securite.</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">🛒</div>
+        <div class="solution-title">Courses, medecin,<br>trajets — autonome.</div>
+      </div>
+      <div class="solution-desc">Drive, Doctolib, Google Maps : plus besoin de demander. Vous vous debrouillez seul.</div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-icon-row">
+        <div class="solution-icon">📱</div>
+        <div class="solution-title">Votre telephone<br>regle pour VOUS.</div>
+      </div>
+      <div class="solution-desc">Texte plus grand, Wi-Fi securise, mises a jour automatiques — confort et securite au quotidien.</div>
+    </div>
+
+  </div>
+
+  <!-- Closing promise from the book -->
+  <div class="closing-promise">
+    <div class="closing-quote">"Un jour, vous vous surprendrez a faire les choses sans reflechir, naturellement. Votre petit-fils vous dira : 'Waouh Mamie/Papi, t'es trop forte !' Et vous sourirez, fier de vous."</div>
+    <div class="closing-caption">— Extrait de l'introduction du guide</div>
+  </div>
+
+  <!-- Next steps compact -->
+  <div class="next-steps">
+    <div class="next-step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Pratiquez 10 min/jour</div>
+        <div class="step-text">Chaque geste repete devient un reflexe.</div>
+      </div>
+    </div>
+    <div class="next-step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Bloquez ? Index (Annexe 6)</div>
+        <div class="step-text">Retrouvez n'importe quel terme en secondes.</div>
+      </div>
+    </div>
+    <div class="next-step-card">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Offrez ce guide</div>
+        <div class="step-text">Le plus beau cadeau d'autonomie a un proche.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- lifbio.fr link -->
+  <div class="lifbio-row">
+    <span class="lifbio-intro">Articles gratuits chaque semaine pour bien vieillir : </span>
+    <a class="lifbio-link" href="https://lifbio.fr">www.lifbio.fr</a>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="8" r="6.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+        <path d="M8 1.5C8 1.5 5.5 4 5.5 8C5.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <path d="M8 1.5C8 1.5 10.5 4 10.5 8C10.5 12 8 14.5 8 14.5" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+        <line x1="1.5" y1="8" x2="14.5" y2="8" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+      </svg>
+      lifguido.com
+    </div>
+    <div class="footer-edition">Edition 2026</div>
+  </div>
+</div>
+
+</body>
+</html>
